@@ -3,7 +3,8 @@ extends CharacterBody2D
 @export var speed: float = 80.0
 @export var camera_2d: Camera2D
 
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@export var animation_player: AnimationPlayer
+@export var sprite_2d: Sprite2D
 
 var last_direction: String = "down"
 
@@ -19,24 +20,24 @@ func _physics_process(delta: float) -> void:
 	if input_vec != Vector2.ZERO:
 		# ƯU TIÊN DI CHUYỂN NGANG
 		if input_vec.x != 0:
-			sprite.play("move_side")
-			sprite.flip_h = input_vec.x < 0
+			animation_player.play("move_side")
+			sprite_2d.flip_h = input_vec.x < 0
 			last_direction = "side"
 		else:
 			if input_vec.y > 0:
-				sprite.play("move_down")
+				animation_player.play("move_down")
 				last_direction = "down"
 			else:
-				sprite.play("move_up")
+				animation_player.play("move_up")
 				last_direction = "up"
 	else:
 		# Idle theo hướng cuối
 		if last_direction == "side":
-			sprite.play("idle_side")
+			animation_player.play("idle_side")
 		elif last_direction == "up":
-			sprite.play("idle_up")
+			animation_player.play("idle_up")
 		else:
-			sprite.play("idle_down")
+			animation_player.play("idle_down")
 
 	global_position = global_position.round()
 	camera_2d.global_position = global_position
