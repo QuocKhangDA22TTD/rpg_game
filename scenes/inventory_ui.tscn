@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://c06klg74cglxk"]
 
-[node name="Inventory" type="Control" unique_id=1898595049]
+[ext_resource type="Script" uid="uid://dtkjfr3lp2vt7" path="res://scripts/inventory_ui.gd" id="1_tahbm"]
+
+[node name="InventoryUI" type="Control" unique_id=1898595049]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_tahbm")
 
 [node name="Panel" type="Panel" parent="." unique_id=1375891763]
 layout_mode = 0
