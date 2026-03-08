@@ -27,3 +27,5 @@ position = Vector2(142, 98)
 texture = ExtResource("3_l20p6")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=303326724]
