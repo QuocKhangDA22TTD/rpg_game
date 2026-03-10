@@ -18,6 +18,13 @@ func _ready():
 	inventory.inventory_changed.connect(update_inventory)
 	
 	update_inventory()
+	
+	hide()
+
+
+func _input(event):
+	if event.is_action_pressed("toggle_inventory"):
+		visible = !visible
 
 
 func update_inventory():
