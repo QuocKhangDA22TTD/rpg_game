@@ -13,10 +13,15 @@ script = ExtResource("1_4v6ba")
 icon = NodePath("Icon")
 amount = NodePath("Amount")
 
+[node name="Panel" type="Panel" parent="." unique_id=1466648611]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
 [node name="Icon" type="TextureRect" parent="." unique_id=1561663722]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 64.0
+offset_bottom = 64.0
 
 [node name="Amount" type="Label" parent="." unique_id=1687080793]
 layout_mode = 0
