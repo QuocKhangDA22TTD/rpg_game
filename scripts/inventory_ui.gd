@@ -1,13 +1,13 @@
 extends Control
 
-@export var inventory : Inventory
 @export var slot_scene : PackedScene
-
 @export var grid: GridContainer
 
 var slot_nodes = []
 
 func _ready():
+	var inventory = GameManager.inventory
+
 	for i in inventory.size:
 		var slot = slot_scene.instantiate()
 		grid.add_child(slot)
