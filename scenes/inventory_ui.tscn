@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dtkjfr3lp2vt7" path="res://scripts/inventory_ui.gd" id="1_tahbm"]
 [ext_resource type="PackedScene" uid="uid://dt0mss81fajoo" path="res://scenes/slot.tscn" id="2_mdwe3"]
+[ext_resource type="PackedScene" uid="uid://ctdig0k8nh8in" path="res://scenes/trash_slot.tscn" id="3_mdwe3"]
 
 [node name="InventoryUI" type="Control" unique_id=1898595049 node_paths=PackedStringArray("grid")]
 layout_mode = 3
@@ -12,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tahbm")
 slot_scene = ExtResource("2_mdwe3")
-grid = NodePath("GridContainer")
+grid = NodePath("HBoxContainer/GridContainer")
 
 [node name="Panel" type="Panel" parent="." unique_id=1375891763]
 layout_mode = 1
@@ -22,19 +23,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="." unique_id=349564777]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1039032568]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -32.0
-offset_right = -32.0
-offset_bottom = -32.0
+offset_left = -40.0
+offset_right = 40.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 80
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer" unique_id=349564777]
+layout_mode = 2
 theme_override_constants/h_separation = 80
 theme_override_constants/v_separation = 80
 columns = 6
+
+[node name="TrashSlot" parent="HBoxContainer" unique_id=717487919 instance=ExtResource("3_mdwe3")]
+layout_mode = 2
