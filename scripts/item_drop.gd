@@ -10,6 +10,9 @@ func _ready():
 	if item and item.icon:
 		sprite.texture = item.icon
 		
+		if item.world_scale > 0:
+			sprite.scale = Vector2(item.world_scale, item.world_scale)
+		
 	area.body_entered.connect(_on_body_entered)
 
 

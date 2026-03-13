@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c06klg74cglxk" path="res://scenes/inventory_ui.tscn" id="4_vephn"]
 [ext_resource type="Resource" uid="uid://2oxjf8hoxd7c" path="res://resources/sword.tres" id="5_7qr1p"]
 [ext_resource type="PackedScene" uid="uid://cfvxrdmvfuaw" path="res://scenes/item_drop.tscn" id="5_x0xbu"]
+[ext_resource type="Resource" uid="uid://bqys23112x6ok" path="res://resources/potion.tres" id="6_7qr1p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ba4lm"]
 texture = ExtResource("1_tqfh0")
@@ -42,6 +43,22 @@ item = ExtResource("5_7qr1p")
 [node name="ItemDrop3" parent="." unique_id=861204232 instance=ExtResource("5_x0xbu")]
 position = Vector2(180, 184)
 item = ExtResource("5_7qr1p")
+
+[node name="ItemDrop4" parent="." unique_id=6582532 instance=ExtResource("5_x0xbu")]
+position = Vector2(94, 256)
+item = ExtResource("6_7qr1p")
+
+[node name="ItemDrop5" parent="." unique_id=1774420086 instance=ExtResource("5_x0xbu")]
+position = Vector2(236, 315)
+item = ExtResource("6_7qr1p")
+
+[node name="ItemDrop6" parent="." unique_id=1726317416 instance=ExtResource("5_x0xbu")]
+position = Vector2(329, 213)
+item = ExtResource("6_7qr1p")
+
+[node name="ItemDrop7" parent="." unique_id=412280178 instance=ExtResource("5_x0xbu")]
+position = Vector2(380, 301)
+item = ExtResource("6_7qr1p")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=303326724]
 
