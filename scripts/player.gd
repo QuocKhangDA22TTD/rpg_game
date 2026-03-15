@@ -8,6 +8,9 @@ extends CharacterBody2D
 var last_direction: String = "down"
 var input_vector := Vector2.ZERO
 
+func _ready() -> void:
+	GameManager.register_player(self)
+
 func _physics_process(delta: float) -> void:
 	input_vector = _get_input_vector()
 	
