@@ -11,19 +11,19 @@ var slot_nodes = []
 
 # Khởi tạo giao diện kho đồ
 func _ready():
-	var inventory = GameManager.inventory
+	var inventory_manager = InventoryManager
 
 	# Tạo các slot UI tương ứng với số lượng slot trong inventory
-	for i in inventory.size:
+	for i in inventory_manager.size:
 		var slot = slot_scene.instantiate()
 		grid.add_child(slot)
 	
 		# Liên kết slot UI với slot data
-		slot.slot = inventory.slots[i]
+		slot.slot = inventory_manager.slots[i]
 		slot_nodes.append(slot)
 		
 	# Kết nối signal để cập nhật UI khi inventory thay đổi
-	inventory.inventory_changed.connect(update_inventory)
+	inventory_manager.inventory_changed.connect(update_inventory)
 	
 	update_inventory()
 	

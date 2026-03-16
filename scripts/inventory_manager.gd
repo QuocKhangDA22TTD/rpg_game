@@ -1,6 +1,4 @@
-# Lớp quản lý kho đồ của người chơi
 extends Node
-class_name Inventory
 
 # Signal phát ra khi có thay đổi trong kho đồ
 signal inventory_changed

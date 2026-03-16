@@ -29,6 +29,6 @@ func _ready():
 func _on_body_entered(body):
 	if body.name == "Player":
 		# Thử thêm vật phẩm vào kho đồ
-		if GameManager.inventory.add_item(item, amount):
+		if InventoryManager.add_item(item, amount):
 			# Nếu thêm thành công, xóa vật phẩm khỏi bản đồ
 			queue_free()
