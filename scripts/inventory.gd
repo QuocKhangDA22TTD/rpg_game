@@ -1,19 +1,26 @@
+# Lớp quản lý kho đồ của người chơi
 extends Node
 class_name Inventory
 
+# Signal phát ra khi có thay đổi trong kho đồ
 signal inventory_changed
 
+# Số lượng ô chứa đồ tối đa
 @export var size : int = 30
 
+# Mảng chứa các slot (ô đồ)
 var slots : Array = []
 
+# Khởi tạo các slot trống khi bắt đầu
 func _ready():
 	for i in size:
 		slots.append(Slot.new())
 
 
+# Thêm vật phẩm vào kho đồ
+# Trả về true nếu thêm thành công, false nếu kho đầy
 func add_item(item: ItemData, amount: int = 1):
-	# stack trước
+	# Ưu tiên xếp chồng vào slot đã có vật phẩm cùng loại
 	for slot in slots:
 		if slot.item == item and slot.amount < item.max_stack:
 			var space = item.max_stack - slot.amount
@@ -26,7 +33,7 @@ func add_item(item: ItemData, amount: int = 1):
 				emit_signal("inventory_changed")
 				return true
 	
-	# slot trống
+	# Nếu không xếp chồng được, tìm slot trống
 	for slot in slots:
 		if slot.is_empty():
 			slot.item = item
@@ -34,13 +41,16 @@ func add_item(item: ItemData, amount: int = 1):
 			emit_signal("inventory_changed")
 			return true
 	
+	# Kho đầy, không thể thêm
 	return false
 
 
+# Xóa vật phẩm khỏi slot tại vị trí index
 func remove_item(index:int, amount:int):
 	var slot = slots[index]
 	slot.amount -= amount
 	
+	# Nếu số lượng <= 0, xóa hoàn toàn vật phẩm khỏi slot
 	if slot.amount <= 0:
 		slot.item = null
 		slot.amount = 0
