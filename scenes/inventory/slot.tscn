@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dt0mss81fajoo"]
 
-[ext_resource type="Script" uid="uid://brno2gk6s0rtl" path="res://scripts/slot_ui.gd" id="1_4v6ba"]
+[ext_resource type="Script" uid="uid://brno2gk6s0rtl" path="res://scripts/inventory/slot_ui.gd" id="1_4v6ba"]
 
 [node name="Slot" type="Control" unique_id=278048074 node_paths=PackedStringArray("icon", "amount")]
 layout_mode = 3
