@@ -15,6 +15,9 @@ var last_direction: String = "down"
 # Vector chứa input từ bàn phím
 var input_vector := Vector2.ZERO
 
+func _ready() -> void:
+	GameManager.player = self
+
 # Xử lý vật lý và di chuyển mỗi frame
 func _physics_process(delta: float) -> void:
 	input_vector = _get_input_vector()
