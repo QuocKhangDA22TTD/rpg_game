@@ -5,11 +5,14 @@ extends Node2D
 @export var item : ItemData
 # Số lượng vật phẩm
 @export var amount : int = 1
+@export var pickup_delay : float = 0.5
 
 # Tham chiếu đến sprite hiển thị vật phẩm
 @onready var sprite = $Sprite2D
 # Tham chiếu đến vùng va chạm để nhặt vật phẩm
 @onready var area = $Area2D
+
+var can_pickup : bool = false
 
 # Khởi tạo vật phẩm rơi
 func _ready():
@@ -21,6 +24,9 @@ func _ready():
 		if item.world_scale > 0:
 			sprite.scale = Vector2(item.world_scale, item.world_scale)
 		
+	await get_tree().create_timer(pickup_delay).timeout
+	can_pickup = true
+
 	# Kết nối signal khi có vật thể va chạm
 	area.body_entered.connect(_on_body_entered)
 

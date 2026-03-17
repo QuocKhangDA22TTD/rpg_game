@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ctdig0k8nh8in"]
+
+[ext_resource type="Script" uid="uid://dbru6hdro38b3" path="res://scripts/trash_slot.gd" id="1_mb0ax"]
+[ext_resource type="PackedScene" uid="uid://cfvxrdmvfuaw" path="res://scenes/item_drop.tscn" id="2_5l1kn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5l1kn"]
+bg_color = Color(0.9734265, 0, 0.254, 1)
+
+[node name="Slot" type="Control" unique_id=278048074]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mb0ax")
+item_drop_scene = ExtResource("2_5l1kn")
+
+[node name="Panel" type="Panel" parent="." unique_id=1466648611]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5l1kn")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1561663722]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="Amount" type="Label" parent="." unique_id=1687080793]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

@@ -42,7 +42,7 @@ func _get_drag_data(pos):
 
 # Kiểm tra có thể thả vật phẩm vào slot này không
 func _can_drop_data(pos, data):
-	return data is Control and data.has_method("update_ui") 
+	return data is Control and data.has_method("update_ui") and data.slot != null
 
 
 # Xử lý khi thả vật phẩm - hoán đổi 2 slot
