@@ -6,6 +6,7 @@ extends Node2D
 # Số lượng vật phẩm
 @export var amount : int = 1
 @export var pickup_delay : float = 0.5
+@export var move_speed : float = 160.0
 
 # Tham chiếu đến sprite hiển thị vật phẩm
 @onready var sprite = $Sprite2D
@@ -13,6 +14,7 @@ extends Node2D
 @onready var area = $Area2D
 
 var can_pickup : bool = false
+var target_player = null
 
 # Khởi tạo vật phẩm rơi
 func _ready():
@@ -31,10 +33,22 @@ func _ready():
 	area.body_entered.connect(_on_body_entered)
 
 
+func _process(delta):
+	if target_player:
+		# Di chuyển về player
+		var direction = (target_player.global_position - global_position).normalized()
+		global_position += direction * move_speed * delta
+
+		sprite.scale -= Vector2(0.5, 0.5) * delta 
+		
+		# Kiểm tra đã chạm player chưa
+		if global_position.distance_to(target_player.global_position) < 1.0:
+			if InventoryManager.add_item(item, amount):
+				queue_free()
+
+
+
 # Xử lý khi người chơi chạm vào vật phẩm
-func _on_body_entered(body):
-	if body.name == "Player":
-		# Thử thêm vật phẩm vào kho đồ
-		if InventoryManager.add_item(item, amount):
-			# Nếu thêm thành công, xóa vật phẩm khỏi bản đồ
-			queue_free()
+func _on_body_entered(body):	
+	if body.name == "Player" and target_player == null:
+		target_player = body
