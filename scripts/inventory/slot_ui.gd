@@ -62,3 +62,5 @@ func _drop_data(pos, data):
 	# Cập nhật UI của cả 2 slot
 	update_ui()
 	data.update_ui()
+	
+	InventoryManager.emit_signal("inventory_changed")
