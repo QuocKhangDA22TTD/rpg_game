@@ -38,11 +38,9 @@ func _process(delta):
 		# Di chuyển về player
 		var direction = (target_player.global_position - global_position).normalized()
 		global_position += direction * move_speed * delta
-
-		sprite.scale -= Vector2(0.5, 0.5) * delta 
 		
 		# Kiểm tra đã chạm player chưa
-		if global_position.distance_to(target_player.global_position) < 1.0:
+		if global_position.distance_to(target_player.global_position) <= 5.0:
 			if InventoryManager.add_item(item, amount):
 				queue_free()
 
