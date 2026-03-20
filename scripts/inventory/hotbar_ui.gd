@@ -74,8 +74,6 @@ func use_selected_item():
 	
 	# Xử lý sử dụng item dựa trên loại
 	match slot.item.type:
-		ItemData.ItemType.CONSUMABLE:
-			use_consumable(slot)
 		ItemData.ItemType.WEAPON:
 			equip_weapon(slot)
 		_:
