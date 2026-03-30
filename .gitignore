@@ -2,3 +2,4 @@
 .godot/
 /android/
 assets/krita_assets/
+export_presets.cfg
