@@ -97,6 +97,16 @@ tracks/0/keys = {
 "update": 1,
 "values": [20, 21]
 }
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponVisual/AnimationWeapon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("slash_side"),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_d2wvv"]
 resource_name = "melee_attack_up"
@@ -182,6 +192,67 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 6.0
 
+[sub_resource type="Animation" id="Animation_3v2ag"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponPivot/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponPivot/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jej6c"]
+resource_name = "slash_side"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponPivot/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [Vector2(5, 0), Vector2(-6, 7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponPivot/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [-0.5235987755982988, 2.792526803190927]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1ej7"]
+_data = {
+&"RESET": SubResource("Animation_3v2ag"),
+&"slash_side": SubResource("Animation_jej6c")
+}
+
 [node name="Player" type="CharacterBody2D" unique_id=955801447 node_paths=PackedStringArray("camera_2d", "animation_player", "sprite_2d")]
 script = ExtResource("1_g2els")
 camera_2d = NodePath("Camera2D")
@@ -209,4 +280,8 @@ shape = SubResource("CircleShape2D_g2els")
 
 [node name="WeaponPivot" type="Node2D" parent="WeaponVisual" unique_id=396260175]
 
+[node name="Sprite2D" type="Sprite2D" parent="WeaponVisual/WeaponPivot" unique_id=1626332226]
+offset = Vector2(6, -6)
+
 [node name="AnimationWeapon" type="AnimationPlayer" parent="WeaponVisual" unique_id=1054018421]
+libraries/ = SubResource("AnimationLibrary_f1ej7")
