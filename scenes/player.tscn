@@ -204,3 +204,9 @@ libraries/ = SubResource("AnimationLibrary_fjrip")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=389324554]
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_g2els")
+
+[node name="WeaponVisual" type="Node2D" parent="." unique_id=1583433285]
+
+[node name="WeaponPivot" type="Node2D" parent="WeaponVisual" unique_id=396260175]
+
+[node name="AnimationWeapon" type="AnimationPlayer" parent="WeaponVisual" unique_id=1054018421]
