@@ -1,10 +1,17 @@
-[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://2oxjf8hoxd7c"]
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://2oxjf8hoxd7c"]
 
 [ext_resource type="Texture2D" uid="uid://833exq3glr5w" path="res://assets/sword.png" id="1_dcagp"]
-[ext_resource type="Script" uid="uid://da36erf37yuv" path="res://scripts/inventory/item_data.gd" id="1_kr6k7"]
+[ext_resource type="Script" uid="uid://c2kvma2hgqx00" path="res://scripts/attack_behavior.gd" id="1_taahv"]
+[ext_resource type="Script" uid="uid://baqexydqn3syx" path="res://scripts/weapon_data.gd" id="2_dcagp"]
+
+[sub_resource type="Resource" id="Resource_ojnd1"]
+script = ExtResource("1_taahv")
+metadata/_custom_type_script = "uid://c2kvma2hgqx00"
 
 [resource]
-script = ExtResource("1_kr6k7")
+script = ExtResource("2_dcagp")
+weapon_texture = ExtResource("1_dcagp")
+attack_behavior = SubResource("Resource_ojnd1")
 id = "sword"
 name = "sword"
 icon = ExtResource("1_dcagp")
