@@ -89,5 +89,16 @@ func use_consumable(slot: Slot):
 
 # Trang bị vũ khí
 func equip_weapon(slot: Slot):
+	# Validation
+	if not slot.item is WeaponData:
+		push_error("Item không phải WeaponData: ", slot.item.name)
+		return
+	
 	print("Đã trang bị: ", slot.item.name)
-	# TODO: Thêm logic trang bị vũ khí cho player
+	GameManager.player.current_weapon = slot.item
+	
+	# Gọi hành vi tấn công nếu cần
+	if slot.item.attack_behavior:
+		slot.item.attack_behavior.execute(GameManager.player, slot.item)
+
+

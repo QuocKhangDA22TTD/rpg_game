@@ -9,6 +9,8 @@ extends CharacterBody2D
 @export var animation_player: AnimationPlayer
 # Tham chiếu đến sprite của nhân vật
 @export var sprite_2d: Sprite2D
+# Tham chiếu đến vũ khí đang được cầm
+@export var current_weapon: WeaponData
 
 # Hướng cuối cùng nhân vật đang quay mặt
 var last_direction: String = "down"
