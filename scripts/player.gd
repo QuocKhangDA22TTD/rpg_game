@@ -28,6 +28,9 @@ func _physics_process(delta: float) -> void:
 	velocity = input_vector * speed
 	move_and_slide()
 	
+	# Xử lý input tấn công
+	_handle_attack_input() 
+
 	# Cập nhật hoạt ảnh và hướng nhân vật
 	_update_animation_and_direction()
 	
@@ -66,3 +69,15 @@ func _update_animation_and_direction():
 			"side":   animation_player.play("idle_side")
 			"up":     animation_player.play("idle_up")
 			_:        animation_player.play("idle_down")
+
+
+func _handle_attack_input():
+	if current_weapon == null or current_weapon.attack_behavior == null:
+		return
+		
+	var input_state = AttackInputState.new()
+	input_state.pressed = Input.is_action_pressed("attack")
+	input_state.just_pressed = Input.is_action_just_pressed("attack")
+	input_state.just_released = Input.is_action_just_released("attack")
+	
+	current_weapon.attack_behavior.handle_input(self, current_weapon, input_state)
