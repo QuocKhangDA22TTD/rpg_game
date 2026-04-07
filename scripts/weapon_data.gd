@@ -10,3 +10,5 @@ class_name WeaponData
 @export var mana_cost: float = 0.0		# lượng mana tiêu thụ mỗi lần tấn công
 
 @export var weapon_texture: Texture2D	# texture của vũ khí
+
+@export var attack_behavior: AttackBehavior	# hành vi tấn công của vũ khí
