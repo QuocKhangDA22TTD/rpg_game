@@ -96,5 +96,6 @@ func equip_weapon(slot: Slot):
 	
 	print("Đã trang bị: ", slot.item.name)
 	GameManager.player.current_weapon = slot.item
+	GameManager.player.weapon_sprite_2d.texture = slot.item.weapon_texture
 
 
