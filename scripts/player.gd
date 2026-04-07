@@ -11,6 +11,10 @@ extends CharacterBody2D
 @export var sprite_2d: Sprite2D
 # Tham chiếu đến vũ khí đang được cầm
 @export var current_weapon: WeaponData
+# tham chiếu đến sprite cho vũ khí
+@export var weapon_sprite_2d: Sprite2D
+# tham chiếu đến điểm gốc để xoay vũ khí
+@export var weapon_pivot: Node2D
 
 # Hướng cuối cùng nhân vật đang quay mặt
 var last_direction: String = "down"
@@ -42,6 +46,9 @@ func _physics_process(delta: float) -> void:
 
 # Lấy vector input từ bàn phím (WASD hoặc mũi tên)
 func _get_input_vector():
+	if animation_player.current_animation.begins_with("melee_attack"):
+		return Vector2.ZERO  # Không nhận input di chuyển nếu đang tấn công
+	
 	return Vector2(
 		Input.get_axis("ui_left", "ui_right"),
 		Input.get_axis("ui_up", "ui_down")
@@ -50,6 +57,9 @@ func _get_input_vector():
 
 # Cập nhật hoạt ảnh và hướng nhân vật dựa trên input
 func _update_animation_and_direction():
+	if animation_player.current_animation.begins_with("melee_attack"):
+		return  # Không phát animation di chuyển nếu đang tấn công
+
 	if input_vector != Vector2.ZERO:
 		# Ưu tiên di chuyển ngang hơn dọc
 		if input_vector.x != 0:
