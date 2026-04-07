@@ -197,7 +197,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("WeaponPivot/Sprite2D:position")
+tracks/0/path = NodePath("WeaponPivot/WeaponSprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -209,7 +209,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("WeaponPivot/Sprite2D:rotation")
+tracks/1/path = NodePath("WeaponPivot/WeaponSprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -225,7 +225,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("WeaponPivot/Sprite2D:position")
+tracks/0/path = NodePath("WeaponPivot/WeaponSprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -237,7 +237,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("WeaponPivot/Sprite2D:rotation")
+tracks/1/path = NodePath("WeaponPivot/WeaponSprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -280,7 +280,7 @@ shape = SubResource("CircleShape2D_g2els")
 
 [node name="WeaponPivot" type="Node2D" parent="WeaponVisual" unique_id=396260175]
 
-[node name="Sprite2D" type="Sprite2D" parent="WeaponVisual/WeaponPivot" unique_id=1626332226]
+[node name="WeaponSprite2D" type="Sprite2D" parent="WeaponVisual/WeaponPivot" unique_id=1626332226]
 offset = Vector2(6, -6)
 
 [node name="AnimationWeapon" type="AnimationPlayer" parent="WeaponVisual" unique_id=1054018421]
