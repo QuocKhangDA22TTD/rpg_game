@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://duplrhxctrtde" path="res://assets/player.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dvilgeii024ul" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://833exq3glr5w" path="res://assets/sword.png" id="3_qhqgy"]
 
 [sub_resource type="Animation" id="Animation_g2els"]
 length = 0.001
@@ -81,6 +82,16 @@ tracks/0/keys = {
 "update": 1,
 "values": [16, 17]
 }
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponVisual/AnimationWeapon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("slash_down"),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_ur7pv"]
 resource_name = "melee_attack_side"
@@ -122,6 +133,16 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(0, 0),
 "update": 1,
 "values": [24, 25]
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponVisual/AnimationWeapon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("slash_up"),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_fjrip"]
@@ -219,6 +240,34 @@ tracks/1/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_f1ej7"]
+resource_name = "slash_down"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponPivot/WeaponSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [Vector2(1, 4), Vector2(-7, 6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponPivot/WeaponSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [0.5235987755982988, 3.4121186876489142]
+}
+
 [sub_resource type="Animation" id="Animation_jej6c"]
 resource_name = "slash_side"
 length = 0.3
@@ -247,10 +296,40 @@ tracks/1/keys = {
 "values": [-0.5235987755982988, 2.792526803190927]
 }
 
+[sub_resource type="Animation" id="Animation_oprun"]
+resource_name = "slash_up"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponPivot/WeaponSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [Vector2(-1, 0), Vector2(6, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponPivot/WeaponSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [-2.0943951023931953, 1.3089969389957472]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f1ej7"]
 _data = {
 &"RESET": SubResource("Animation_3v2ag"),
-&"slash_side": SubResource("Animation_jej6c")
+&"slash_down": SubResource("Animation_f1ej7"),
+&"slash_side": SubResource("Animation_jej6c"),
+&"slash_up": SubResource("Animation_oprun")
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=955801447 node_paths=PackedStringArray("camera_2d", "animation_player", "sprite_2d")]
@@ -281,6 +360,7 @@ shape = SubResource("CircleShape2D_g2els")
 [node name="WeaponPivot" type="Node2D" parent="WeaponVisual" unique_id=396260175]
 
 [node name="WeaponSprite2D" type="Sprite2D" parent="WeaponVisual/WeaponPivot" unique_id=1626332226]
+texture = ExtResource("3_qhqgy")
 offset = Vector2(6, -6)
 
 [node name="AnimationWeapon" type="AnimationPlayer" parent="WeaponVisual" unique_id=1054018421]
