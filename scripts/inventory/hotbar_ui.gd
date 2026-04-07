@@ -96,9 +96,5 @@ func equip_weapon(slot: Slot):
 	
 	print("Đã trang bị: ", slot.item.name)
 	GameManager.player.current_weapon = slot.item
-	
-	# Gọi hành vi tấn công nếu cần
-	if slot.item.attack_behavior:
-		slot.item.attack_behavior.execute(GameManager.player, slot.item)
 
 
