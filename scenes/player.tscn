@@ -212,6 +212,15 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 6.0
 
+[sub_resource type="Animation" id="Animation_60mlk"]
+resource_name = "hit_box_side"
+length = 0.3
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i4ail"]
+_data = {
+&"hit_box_side": SubResource("Animation_60mlk")
+}
+
 [sub_resource type="Animation" id="Animation_3v2ag"]
 length = 0.001
 tracks/0/type = "value"
@@ -708,6 +717,13 @@ offset = Vector2(6, -6)
 
 [node name="EffectSprite2D" type="Sprite2D" parent="WeaponVisual/WeaponPivot" unique_id=253292181]
 visible = false
+
+[node name="Hitbox" type="Area2D" parent="WeaponVisual/WeaponPivot" unique_id=1947067086]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponVisual/WeaponPivot/Hitbox" unique_id=524468356]
+
+[node name="AnimationHitbox" type="AnimationPlayer" parent="WeaponVisual/WeaponPivot/Hitbox" unique_id=1904638348]
+libraries/ = SubResource("AnimationLibrary_i4ail")
 
 [node name="AnimationWeapon" type="AnimationPlayer" parent="WeaponVisual" unique_id=1054018421]
 libraries/ = SubResource("AnimationLibrary_f1ej7")
