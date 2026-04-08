@@ -112,5 +112,9 @@ func unequip_weapon():
 
 
 func _on_inventory_changed():
-	if not InventoryManager.slots[selected_slot_index].is_empty():
+	var selected_slot = InventoryManager.slots[selected_slot_index]
+	
+	if selected_slot.is_empty():
+		unequip_weapon()
+	else:
 		use_selected_item()
