@@ -70,6 +70,7 @@ func use_selected_item():
 	var slot = InventoryManager.slots[selected_slot_index]
 	
 	if slot.is_empty():
+		unequip_weapon()
 		return
 	
 	# Xử lý sử dụng item dựa trên loại
@@ -77,7 +78,7 @@ func use_selected_item():
 		ItemData.ItemType.WEAPON:
 			equip_weapon(slot)
 		_:
-			print("Item này không thể sử dụng từ hotbar")
+			unequip_weapon()
 
 # Sử dụng vật phẩm tiêu hao
 func use_consumable(slot: Slot):
@@ -101,3 +102,9 @@ func equip_weapon(slot: Slot):
 	GameManager.player.weapon_sprite_2d.texture = slot.item.weapon_texture
 	# Cập nhật texture hiệu ứng tấn công của player
 	GameManager.player.effect_sprite_2d.texture = slot.item.slash_effect_texture
+
+
+func unequip_weapon():
+	GameManager.player.current_weapon = null
+	GameManager.player.weapon_sprite_2d.texture = null
+	GameManager.player.effect_sprite_2d.texture = null
