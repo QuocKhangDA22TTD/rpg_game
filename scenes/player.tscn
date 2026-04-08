@@ -823,5 +823,3 @@ libraries/ = SubResource("AnimationLibrary_f1ej7")
 
 [node name="AnimationEffect" type="AnimationPlayer" parent="WeaponVisual" unique_id=360119740]
 libraries/ = SubResource("AnimationLibrary_qfm1y")
-
-[connection signal="body_entered" from="WeaponVisual/WeaponPivot/Hitbox" to="WeaponVisual/WeaponPivot/Hitbox" method="_on_body_entered"]
