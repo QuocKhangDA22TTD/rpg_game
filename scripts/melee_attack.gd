@@ -35,6 +35,9 @@ func execute(user, weapon_data):
 		user.sprite_2d.flip_h = true
 		user.weapon_pivot.scale.x = -1
 	
+	# Cập nhật vị trí hiệu ứng tấn công dựa trên weapon_data
+	user.effect_sprite_2d.offset = weapon_data.effect_offset
+	
 	# Hiển thị vũ khí
 	user.weapon_sprite_2d.visible = true
 	
