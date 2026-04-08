@@ -50,9 +50,11 @@ func _input(event):
 	if event.is_action_pressed("hotbar_next"):
 		selected_slot_index = (selected_slot_index + 1) % hotbar_size
 		highlight_selected_slot()
+		use_selected_item()
 	elif event.is_action_pressed("hotbar_previous"):
 		selected_slot_index = (selected_slot_index - 1 + hotbar_size) % hotbar_size
 		highlight_selected_slot()
+		use_selected_item()
 
 # Highlight slot đang được chọn
 func highlight_selected_slot():
