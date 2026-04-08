@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cfvxrdmvfuaw" path="res://scenes/inventory/item_drop.tscn" id="5_x0xbu"]
 [ext_resource type="Resource" uid="uid://bqys23112x6ok" path="res://resources/potion.tres" id="6_7qr1p"]
 [ext_resource type="PackedScene" uid="uid://csoqgl1rfxiss" path="res://scenes/inventory/hotbar_ui.tscn" id="8_e66cg"]
+[ext_resource type="PackedScene" uid="uid://b6nnsn7b2io65" path="res://scenes/slime.tscn" id="9_5fme1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ba4lm"]
 texture = ExtResource("1_tqfh0")
@@ -66,3 +67,6 @@ item = ExtResource("6_7qr1p")
 [node name="InventoryUI" parent="UI" unique_id=1898595049 instance=ExtResource("4_vephn")]
 
 [node name="HotbarUI" parent="UI" unique_id=1524678013 instance=ExtResource("8_e66cg")]
+
+[node name="Slime" parent="." unique_id=2023807860 instance=ExtResource("9_5fme1")]
+position = Vector2(200, 200)
