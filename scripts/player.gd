@@ -17,6 +17,8 @@ extends CharacterBody2D
 @export var weapon_pivot: Node2D
 # Tham chiếu đến sprite hiệu ứng tấn công
 @export var effect_sprite_2d: Sprite2D
+# Tham chiếu đến hitbox để xử lý va chạm tấn công
+@export var hitbox: Hitbox
 
 # Hướng cuối cùng nhân vật đang quay mặt
 var last_direction: String = "down"
