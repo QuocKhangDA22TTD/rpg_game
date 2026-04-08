@@ -26,6 +26,10 @@ window/size/viewport_height=180
 window/size/window_width_override=1280
 window/size/window_height_override=720
 
+[global_group]
+
+enemy=""
+
 [input]
 
 ui_left={
