@@ -44,9 +44,21 @@ func execute(user, weapon_data):
 	# Phát animation tấn công theo hướng
 	var animation_name = "melee_attack_" + attack_direction
 	user.animation_player.play(animation_name)
+
+	# Lắng nghe signal từ Hitbox
+	var hitbox = user.hitbox
+	hitbox.hit_enemy.connect(_on_hitbox_hit_enemy.bindv([weapon_data]))
 	
-	# Chờ animation kết thúc rồi cập nhật last_direction
+	# Chờ animation kết thúc
 	await user.animation_player.animation_finished
+
+	# Ngắt kết nối signal
+	hitbox.hit_enemy.disconnect(_on_hitbox_hit_enemy)
+	
+	# Reset danh sách enemy đã hit
+	hitbox.reset_hit_list()
+
+	# Cập nhật hướng cuối cùng của nhân vật
 	user.last_direction = attack_direction
 	
 	# Ẩn vũ khí sau khi tấn công kết thúc
@@ -56,3 +68,12 @@ func execute(user, weapon_data):
 func handle_input(user, weapon_data, input_state):
 	if input_state.just_pressed:
 		execute(user, weapon_data)
+
+
+# Hàm xử lý khi Hitbox va chạm với enemy
+func _on_hitbox_hit_enemy(enemy: Node2D, weapon_data: WeaponData) -> void:
+	if enemy.has_method("take_damage"):
+		# Tính damage (có thể thêm crit chance, defense, v.v.)
+		var damage = int(weapon_data.damage)
+		enemy.take_damage(damage)
+		print("Enemy nhận %d damage" % damage)
