@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://833exq3glr5w" path="res://assets/sword.png" id="1_dcagp"]
 [ext_resource type="Script" uid="uid://baqexydqn3syx" path="res://scripts/weapon_data.gd" id="2_dcagp"]
 [ext_resource type="Script" uid="uid://bwmnw4trsr1hf" path="res://scripts/melee_attack.gd" id="3_melee"]
+[ext_resource type="Texture2D" uid="uid://dgutfdp1b3d65" path="res://assets/slash.png" id="4_ojnd1"]
 
 [sub_resource type="Resource" id="Resource_taahv"]
 script = ExtResource("3_melee")
@@ -12,6 +13,8 @@ metadata/_custom_type_script = "uid://bwmnw4trsr1hf"
 script = ExtResource("2_dcagp")
 weapon_texture = ExtResource("1_dcagp")
 attack_behavior = SubResource("Resource_taahv")
+effect_offset = Vector2(14, 0)
+slash_effect_texture = ExtResource("4_ojnd1")
 id = "sword"
 name = "sword"
 icon = ExtResource("1_dcagp")
