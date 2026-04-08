@@ -363,5 +363,9 @@ shape = SubResource("CircleShape2D_g2els")
 [node name="WeaponSprite2D" type="Sprite2D" parent="WeaponVisual/WeaponPivot" unique_id=1626332226]
 offset = Vector2(6, -6)
 
+[node name="EffectSprite2D" type="Sprite2D" parent="WeaponVisual/WeaponPivot" unique_id=253292181]
+
 [node name="AnimationWeapon" type="AnimationPlayer" parent="WeaponVisual" unique_id=1054018421]
 libraries/ = SubResource("AnimationLibrary_f1ej7")
+
+[node name="AnimationEffect" type="AnimationPlayer" parent="WeaponVisual" unique_id=360119740]
