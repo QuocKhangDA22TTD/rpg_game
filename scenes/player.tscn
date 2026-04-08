@@ -331,13 +331,14 @@ _data = {
 &"slash_up": SubResource("Animation_oprun")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=955801447 node_paths=PackedStringArray("camera_2d", "animation_player", "sprite_2d", "weapon_sprite_2d", "weapon_pivot")]
+[node name="Player" type="CharacterBody2D" unique_id=955801447 node_paths=PackedStringArray("camera_2d", "animation_player", "sprite_2d", "weapon_sprite_2d", "weapon_pivot", "effect_sprite_2d")]
 script = ExtResource("1_g2els")
 camera_2d = NodePath("Camera2D")
 animation_player = NodePath("AnimationPlayer")
 sprite_2d = NodePath("Sprite2D")
 weapon_sprite_2d = NodePath("WeaponVisual/WeaponPivot/WeaponSprite2D")
 weapon_pivot = NodePath("WeaponVisual/WeaponPivot")
+effect_sprite_2d = NodePath("WeaponVisual/WeaponPivot/EffectSprite2D")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1986414232]
 zoom = Vector2(4, 4)

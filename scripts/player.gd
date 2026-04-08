@@ -15,6 +15,8 @@ extends CharacterBody2D
 @export var weapon_sprite_2d: Sprite2D
 # tham chiếu đến điểm gốc để xoay vũ khí
 @export var weapon_pivot: Node2D
+# Tham chiếu đến sprite hiệu ứng tấn công
+@export var effect_sprite_2d: Sprite2D
 
 # Hướng cuối cùng nhân vật đang quay mặt
 var last_direction: String = "down"
