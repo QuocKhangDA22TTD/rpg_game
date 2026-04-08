@@ -212,13 +212,91 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 6.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+
+[sub_resource type="Animation" id="Animation_i4ail"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:shape:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_60mlk"]
-resource_name = "hit_box_side"
+resource_name = "hitbox_side"
 length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:shape:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [Vector2(30, 30)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [Vector2(15, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.15, 0.25),
+"transitions": PackedFloat32Array(1, 0),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i4ail"]
 _data = {
-&"hit_box_side": SubResource("Animation_60mlk")
+&"RESET": SubResource("Animation_i4ail"),
+&"hitbox_side": SubResource("Animation_60mlk")
 }
 
 [sub_resource type="Animation" id="Animation_3v2ag"]
@@ -321,6 +399,16 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": PackedStringArray("slash_effect_side"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WeaponPivot/Hitbox/AnimationHitbox")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("hitbox_side"),
 "times": PackedFloat32Array(0)
 }
 
@@ -719,8 +807,10 @@ offset = Vector2(6, -6)
 visible = false
 
 [node name="Hitbox" type="Area2D" parent="WeaponVisual/WeaponPivot" unique_id=1947067086]
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponVisual/WeaponPivot/Hitbox" unique_id=524468356]
+shape = SubResource("RectangleShape2D_g2els")
 
 [node name="AnimationHitbox" type="AnimationPlayer" parent="WeaponVisual/WeaponPivot/Hitbox" unique_id=1904638348]
 libraries/ = SubResource("AnimationLibrary_i4ail")
