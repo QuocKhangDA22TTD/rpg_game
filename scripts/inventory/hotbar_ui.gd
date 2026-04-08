@@ -95,7 +95,9 @@ func equip_weapon(slot: Slot):
 		return
 	
 	print("Đã trang bị: ", slot.item.name)
+	# Cập nhật vũ khí hiện tại của player
 	GameManager.player.current_weapon = slot.item
+	# Cập nhật sprite vũ khí của player
 	GameManager.player.weapon_sprite_2d.texture = slot.item.weapon_texture
-
-
+	# Cập nhật texture hiệu ứng tấn công của player
+	GameManager.player.effect_sprite_2d.texture = slot.item.slash_effect_texture
