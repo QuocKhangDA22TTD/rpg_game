@@ -14,3 +14,5 @@ class_name WeaponData
 @export var attack_behavior: AttackBehavior	# hành vi tấn công của vũ khí
 
 @export var effect_offset: Vector2 = Vector2.ZERO # vị trí hiệu ứng tấn công so với điểm pivot của vũ khí
+
+@export var slash_effect_texture: Texture2D	# texture cho hiệu ứng slash khi tấn công
