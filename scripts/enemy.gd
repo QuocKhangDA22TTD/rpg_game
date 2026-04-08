@@ -7,15 +7,15 @@ extends CharacterBody2D
 var hp: int
 
 func _ready():
-    hp = max_hp
+	hp = max_hp
 
 func _physics_process(delta):
-    move_and_slide()
+	move_and_slide()
 
 func take_damage(amount):
-    hp -= amount
-    if hp <= 0:
-        die()
+	hp -= amount
+	if hp <= 0:
+		die()
 
 func die():
-    queue_free()
+	queue_free()

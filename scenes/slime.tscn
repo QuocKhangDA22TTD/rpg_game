@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b6nnsn7b2io65"]
+
+[ext_resource type="PackedScene" uid="uid://y7gka8f5usv2" path="res://scenes/enemy.tscn" id="1_371uh"]
+
+[node name="Slime" unique_id=2023807860 instance=ExtResource("1_371uh")]
