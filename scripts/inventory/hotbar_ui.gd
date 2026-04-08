@@ -26,6 +26,7 @@ func _ready():
 	
 	# Kết nối signal để cập nhật UI khi inventory thay đổi
 	inventory_manager.inventory_changed.connect(update_hotbar)
+	inventory_manager.inventory_changed.connect(_on_inventory_changed)
 	
 	update_hotbar()
 	highlight_selected_slot()
@@ -108,3 +109,8 @@ func unequip_weapon():
 	GameManager.player.current_weapon = null
 	GameManager.player.weapon_sprite_2d.texture = null
 	GameManager.player.effect_sprite_2d.texture = null
+
+
+func _on_inventory_changed():
+	if not InventoryManager.slots[selected_slot_index].is_empty():
+		use_selected_item()
