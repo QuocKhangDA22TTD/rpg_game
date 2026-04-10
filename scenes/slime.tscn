@@ -4,7 +4,80 @@
 [ext_resource type="Texture2D" uid="uid://dubqhl481eu10" path="res://assets/slime.png" id="2_p2gj0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2gj0"]
-radius = 7.071068
+radius = 7.0
+
+[sub_resource type="Animation" id="Animation_p2gj0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_2npkn"]
+resource_name = "attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0, 0),
+"update": 1,
+"values": [8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_n6pvg"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(0, 0, 0, 0),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_pjw23"]
+resource_name = "move_side"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35, 0.45),
+"transitions": PackedFloat32Array(0, 0, 0, 0),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pjw23"]
+_data = {
+&"RESET": SubResource("Animation_p2gj0"),
+&"attack": SubResource("Animation_2npkn"),
+&"idle": SubResource("Animation_n6pvg"),
+&"move_side": SubResource("Animation_pjw23")
+}
 
 [node name="Slime" unique_id=2023807860 instance=ExtResource("1_371uh")]
 
@@ -14,5 +87,8 @@ hframes = 4
 vframes = 3
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=32452900]
-position = Vector2(0, -1)
+position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_p2gj0")
+
+[node name="AnimationPlayer" parent="." index="2" unique_id=168827063]
+libraries/ = SubResource("AnimationLibrary_pjw23")
