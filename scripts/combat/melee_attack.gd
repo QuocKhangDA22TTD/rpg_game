@@ -1,7 +1,20 @@
 extends AttackBehavior
 class_name MeleeAttack
 
+var current_weapon_data: WeaponData
+var is_executing: bool = false
+
+func _ready() -> void:
+	# Kết nối signal hit_enemy của hitbox đến hàm xử lý
+	var hitbox = GameManager.player.hitbox
+	hitbox.hit_enemy.connect(_on_hitbox_hit_enemy)
+
 func execute(user, weapon_data):
+	if is_executing:
+		return
+	
+	is_executing = true
+	current_weapon_data = weapon_data
 	# Lấy vị trí chuột trong world space thông qua user (Player)
 	var mouse_pos = user.get_global_mouse_position()
 	var player_pos = user.global_position
@@ -45,15 +58,10 @@ func execute(user, weapon_data):
 	var animation_name = "melee_attack_" + attack_direction
 	user.animation_player.play(animation_name)
 
-	# Lắng nghe signal từ Hitbox
-	var hitbox = user.hitbox
-	hitbox.hit_enemy.connect(_on_hitbox_hit_enemy.bindv([weapon_data]))
+	var hitbox = user.hitbox # Lấy tham chiếu đến hitbox của player
 	
 	# Chờ animation kết thúc
 	await user.animation_player.animation_finished
-
-	# Ngắt kết nối signal
-	hitbox.hit_enemy.disconnect(_on_hitbox_hit_enemy)
 	
 	# Reset danh sách enemy đã hit
 	hitbox.reset_hit_list()
@@ -63,6 +71,9 @@ func execute(user, weapon_data):
 	
 	# Ẩn vũ khí sau khi tấn công kết thúc
 	user.weapon_sprite_2d.visible = false
+	
+	# Cho phép tấn công tiếp theo
+	is_executing = false
 
 
 func handle_input(user, weapon_data, input_state):
@@ -71,9 +82,9 @@ func handle_input(user, weapon_data, input_state):
 
 
 # Hàm xử lý khi Hitbox va chạm với enemy
-func _on_hitbox_hit_enemy(enemy: Node2D, weapon_data: WeaponData) -> void:
+func _on_hitbox_hit_enemy(enemy: Node2D) -> void:
 	if enemy.has_method("take_damage"):
 		# Tính damage (có thể thêm crit chance, defense, v.v.)
-		var damage = int(weapon_data.damage)
+		var damage = int(current_weapon_data.damage)
 		enemy.take_damage(damage)
 		print("Enemy nhận %d damage" % damage)
