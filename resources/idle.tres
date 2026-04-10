@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="IdleState" format=3 uid="uid://d1ipms1o2wua2"]
+
+[ext_resource type="Script" uid="uid://dwt32hvdxfg87" path="res://scripts/enemy/idle_state.gd" id="1_0p3hf"]
+
+[resource]
+script = ExtResource("1_0p3hf")
