@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://duplrhxctrtde" path="res://assets/player.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dvilgeii024ul" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Script" uid="uid://dw7p628bxvoo6" path="res://scripts/hitbox.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://dw7p628bxvoo6" path="res://scripts/combat/hitbox.gd" id="3_qhqgy"]
 
 [sub_resource type="Animation" id="Animation_g2els"]
 length = 0.001
