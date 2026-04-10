@@ -27,3 +27,5 @@ enum EnemyType { MELEE, RANGED, BOSS }
 # Flags
 @export var can_fly: bool = false
 @export var is_boss: bool = false
+
+@export var sprite_sheet: Texture2D
