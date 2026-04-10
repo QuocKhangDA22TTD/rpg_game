@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dd3g26wg0xp5c"]
+
+[ext_resource type="Script" uid="uid://caw6e3cxvhnos" path="res://scripts/enemy/enemy_data.gd" id="1_j53m2"]
+[ext_resource type="Texture2D" uid="uid://dubqhl481eu10" path="res://assets/slime.png" id="2_hjcbr"]
+
+[resource]
+script = ExtResource("1_j53m2")
+id = "slime"
+display_name = "slime"
+texture = ExtResource("2_hjcbr")
+metadata/_custom_type_script = "uid://caw6e3cxvhnos"

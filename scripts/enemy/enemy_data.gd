@@ -10,6 +10,5 @@ class_name EnemyData
 @export var speed: float = 50
 @export var damage: int = 1
 
-# hình ảnh và hoạt ảnh
-@export var texture: Texture2D
+# thông tin hoạt ảnh
 @export var animation_library: AnimationLibrary

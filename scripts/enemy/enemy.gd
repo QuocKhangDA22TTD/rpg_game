@@ -13,9 +13,6 @@ func _ready():
 	hp = data.max_hp
 	speed = data.speed
 	
-	# GÁN TEXTURE
-	sprite_2d.texture = data.texture
-	
 	# GÁN ANIMATION
 	if data.animation_library:
 		animation_player.add_animation_library("default", data.animation_library)
