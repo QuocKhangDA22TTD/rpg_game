@@ -15,9 +15,7 @@ func _ready():
 	
 	# GÁN ANIMATION
 	if data.animation_library:
-		animation_player.add_animation_library("default", data.animation_library)
-		
-	play_anim("idle")
+		animation_player.add_animation_library("", data.animation_library)
 
 	# bắt đầu state đầu tiên
 	if states.size() > 0:
