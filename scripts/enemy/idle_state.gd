@@ -7,12 +7,12 @@ class_name IdleState
 var timer := 0.0
 
 func enter(enemy):
-    timer = 0
-    enemy.play_anim("idle")
+	timer = 0
+	enemy.play_anim("idle")
 
 func update(enemy, delta):
-    timer += delta
-    enemy.velocity = Vector2.ZERO
+	timer += delta
+	enemy.velocity = Vector2.ZERO
 
-    if timer >= wait_time and next_state:
-        enemy.change_state(next_state)
+	if timer >= wait_time and next_state:
+		enemy.change_state(next_state)
