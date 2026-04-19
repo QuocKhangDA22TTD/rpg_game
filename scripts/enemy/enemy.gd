@@ -13,6 +13,9 @@ func _ready():
 	hp = data.max_hp
 	speed = data.speed
 	
+	for state in data.states:
+		states.append(state)
+	
 	# GÁN ANIMATION
 	if data.animation_library:
 		animation_player.add_animation_library("", data.animation_library)
