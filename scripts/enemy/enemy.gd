@@ -25,6 +25,10 @@ func _ready():
 func _physics_process(delta):
 	if current_state:
 		current_state.update(self, delta)
+	
+	# lật sprite dựa trên hướng di chuyển
+	if velocity.x != 0:
+		sprite_2d.flip_h = velocity.x < 0
 
 	move_and_slide()
 
@@ -45,4 +49,18 @@ func play_anim(name):
 
 
 func get_player():
-	return get_tree().get_first_node_in_group("player")
+	return GameManager.player
+
+
+func get_state(state_type):
+	for state in states:
+		if is_instance_of(state, state_type):
+			return state
+	return null
+
+
+func distance_to_player():
+	var player = get_player()
+	if player:
+		return global_position.distance_to(player.global_position)
+	return null
