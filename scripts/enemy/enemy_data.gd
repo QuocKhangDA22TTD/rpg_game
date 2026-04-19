@@ -12,3 +12,5 @@ class_name EnemyData
 
 # thông tin hoạt ảnh
 @export var animation_library: AnimationLibrary
+# các trạng thái có thể có
+@export var states: Array[EnemyState]
