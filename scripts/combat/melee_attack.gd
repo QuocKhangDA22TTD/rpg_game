@@ -7,7 +7,8 @@ var is_executing: bool = false
 func _ready() -> void:
 	# Kết nối signal hit_enemy của hitbox đến hàm xử lý
 	var hitbox = GameManager.player.hitbox
-	hitbox.hit_enemy.connect(_on_hitbox_hit_enemy)
+	if not hitbox.hit_enemy.is_connected(_on_hitbox_hit_enemy):
+		hitbox.hit_enemy.connect(_on_hitbox_hit_enemy)
 
 func execute(user, weapon_data):
 	if is_executing:
@@ -77,6 +78,8 @@ func execute(user, weapon_data):
 
 
 func handle_input(user, weapon_data, input_state):
+	_ready() # Đảm bảo kết nối signal được thiết lập
+
 	if input_state.just_pressed:
 		execute(user, weapon_data)
 
