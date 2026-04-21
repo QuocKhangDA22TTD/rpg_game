@@ -86,8 +86,4 @@ func handle_input(user, weapon_data, input_state):
 
 # Hàm xử lý khi Hitbox va chạm với enemy
 func _on_hitbox_hit_enemy(enemy: Node2D) -> void:
-	if enemy.has_method("take_damage"):
-		# Tính damage (có thể thêm crit chance, defense, v.v.)
-		var damage = int(current_weapon_data.damage)
-		enemy.take_damage(damage)
-		print("Enemy nhận %d damage" % damage)
+	enemy.take_damage(current_weapon_data.damage, GameManager.player) # Gọi hàm take_damage trên enemy với lượng damage và nguồn tấn công (source)
