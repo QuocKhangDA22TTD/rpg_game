@@ -2,7 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://duplrhxctrtde" path="res://assets/player.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dvilgeii024ul" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://833exq3glr5w" path="res://assets/sword.png" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://dw7p628bxvoo6" path="res://scripts/combat/hitbox.gd" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://dgutfdp1b3d65" path="res://assets/slash.png" id="4_qlg0r"]
 
 [sub_resource type="Animation" id="Animation_g2els"]
 length = 0.001
@@ -327,7 +329,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(0),
 "update": 0,
-"values": [Vector2(0, 9)]
+"values": [Vector2(0, 6)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -805,7 +807,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(0),
 "update": 0,
-"values": [Vector2(12, 0)]
+"values": [Vector2(15, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_a8ls1"]
@@ -959,6 +961,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(1.5, 1.5)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("WeaponPivot/EffectSprite2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [Vector2(0, -12)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("WeaponPivot/EffectSprite2D:offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [Vector2(11, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qfm1y"]
 _data = {
@@ -1001,11 +1027,12 @@ shape = SubResource("CircleShape2D_g2els")
 [node name="WeaponPivot" type="Node2D" parent="WeaponVisual" unique_id=396260175]
 
 [node name="WeaponSprite2D" type="Sprite2D" parent="WeaponVisual/WeaponPivot" unique_id=1626332226]
-visible = false
+texture = ExtResource("3_dqkch")
 offset = Vector2(6, -6)
 
 [node name="EffectSprite2D" type="Sprite2D" parent="WeaponVisual/WeaponPivot" unique_id=253292181]
 visible = false
+texture = ExtResource("4_qlg0r")
 
 [node name="Hitbox" type="Area2D" parent="WeaponVisual/WeaponPivot" unique_id=1947067086]
 monitoring = false
