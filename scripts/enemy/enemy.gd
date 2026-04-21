@@ -18,7 +18,9 @@ func _ready():
 	
 	# GÁN ANIMATION
 	if data.animation_library:
-		animation_player.add_animation_library("", data.animation_library)
+		# Kiểm tra nếu animation library đã tồn tại trong animation player, nếu chưa thì thêm vào
+		if not animation_player.has_animation_library(""):
+			animation_player.add_animation_library("", data.animation_library)
 
 	# bắt đầu state đầu tiên
 	if states.size() > 0:
@@ -67,3 +69,14 @@ func distance_to_player():
 	if player:
 		return global_position.distance_to(player.global_position)
 	return null
+
+
+func take_damage(amount, source = null): # source là nguồn gây sát thương, có thể là player hoặc một cái gì đó khác
+	hp -= amount
+	
+	# Kiểm tra nếu hp <= 0 để vào trạng thái chết
+	if hp <= 0:
+		change_state(get_state(DieState))
+		return
+	
+	change_state(get_state(HitState))
