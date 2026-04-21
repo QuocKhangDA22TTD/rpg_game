@@ -18,6 +18,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponVisual/WeaponPivot/EffectSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponVisual/WeaponPivot/EffectSprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 resource_name = "idle_down"
@@ -117,6 +141,30 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "clips": PackedStringArray("slash_side"),
 "times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponVisual/WeaponPivot/EffectSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [Vector2(0, -12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WeaponVisual/WeaponPivot/EffectSprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [Vector2(12, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_d2wvv"]
@@ -279,7 +327,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(0),
 "update": 0,
-"values": [Vector2(0, 15)]
+"values": [Vector2(0, 9)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -319,7 +367,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(0),
 "update": 0,
-"values": [Vector2(15, 0)]
+"values": [Vector2(15, -12)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -359,7 +407,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(0),
 "update": 0,
-"values": [Vector2(0, -15)]
+"values": [Vector2(0, -25)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -422,7 +470,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(0, 0),
 "update": 0,
-"values": [Vector2(1, 4), Vector2(-7, 6)]
+"values": [Vector2(1, -7), Vector2(-7, -6)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -470,7 +518,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(0, 0),
 "update": 0,
-"values": [Vector2(5, 0), Vector2(-6, 7)]
+"values": [Vector2(5, -12), Vector2(-6, -5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -518,7 +566,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(0, 0),
 "update": 0,
-"values": [Vector2(-1, 0), Vector2(6, 5)]
+"values": [Vector2(-1, -12), Vector2(6, -7)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -635,6 +683,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("WeaponPivot/EffectSprite2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("WeaponPivot/EffectSprite2D:offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_fulsm"]
 resource_name = "slash_effect_down"
@@ -710,6 +782,30 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(0),
 "update": 0,
 "values": [Vector2(1.5, 1.5)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("WeaponPivot/EffectSprite2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [Vector2(0, -12)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("WeaponPivot/EffectSprite2D:offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [Vector2(12, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_a8ls1"]
@@ -889,6 +985,7 @@ position_smoothing_speed = 25.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1546273366]
 texture = ExtResource("1_3vyb7")
+offset = Vector2(0, -12)
 hframes = 4
 vframes = 8
 
@@ -896,7 +993,7 @@ vframes = 8
 libraries/ = SubResource("AnimationLibrary_fjrip")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=389324554]
-position = Vector2(0, 6)
+position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_g2els")
 
 [node name="WeaponVisual" type="Node2D" parent="." unique_id=1583433285]
