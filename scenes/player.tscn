@@ -2,9 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://duplrhxctrtde" path="res://assets/player.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dvilgeii024ul" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://833exq3glr5w" path="res://assets/sword.png" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://dw7p628bxvoo6" path="res://scripts/combat/hitbox.gd" id="3_qhqgy"]
-[ext_resource type="Texture2D" uid="uid://dgutfdp1b3d65" path="res://assets/slash.png" id="4_qlg0r"]
 
 [sub_resource type="Animation" id="Animation_g2els"]
 length = 0.001
@@ -1027,12 +1025,11 @@ shape = SubResource("CircleShape2D_g2els")
 [node name="WeaponPivot" type="Node2D" parent="WeaponVisual" unique_id=396260175]
 
 [node name="WeaponSprite2D" type="Sprite2D" parent="WeaponVisual/WeaponPivot" unique_id=1626332226]
-texture = ExtResource("3_dqkch")
+visible = false
 offset = Vector2(6, -6)
 
 [node name="EffectSprite2D" type="Sprite2D" parent="WeaponVisual/WeaponPivot" unique_id=253292181]
 visible = false
-texture = ExtResource("4_qlg0r")
 
 [node name="Hitbox" type="Area2D" parent="WeaponVisual/WeaponPivot" unique_id=1947067086]
 monitoring = false
