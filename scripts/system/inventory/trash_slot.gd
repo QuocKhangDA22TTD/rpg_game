@@ -1,5 +1,5 @@
 # Script cho trash slot - kế thừa từ slot_ui.gd
-extends "res://scripts/inventory/slot_ui.gd"
+extends "res://scripts/system/inventory/slot_ui.gd"
 
 # Scene của item drop để spawn vào thế giới
 @export var item_drop_scene: PackedScene
