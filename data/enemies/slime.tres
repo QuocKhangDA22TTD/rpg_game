@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dd3g26wg0xp5c"]
 
-[ext_resource type="AnimationLibrary" uid="uid://w3mb5qt2lcco" path="res://resources/slime_anim.res" id="1_hjcbr"]
-[ext_resource type="Script" uid="uid://caw6e3cxvhnos" path="res://scripts/enemy/enemy_data.gd" id="1_j53m2"]
+[ext_resource type="AnimationLibrary" uid="uid://w3mb5qt2lcco" path="res://data/animaitons/slime_anim.res" id="1_hjcbr"]
+[ext_resource type="Script" uid="uid://caw6e3cxvhnos" path="res://scripts/data/enemy_data.gd" id="1_j53m2"]
 [ext_resource type="Script" uid="uid://b3st7tlisfq5d" path="res://scripts/enemy/enemy_state.gd" id="3_2pi8n"]
 [ext_resource type="Script" uid="uid://dwt32hvdxfg87" path="res://scripts/enemy/idle_state.gd" id="4_g7c64"]
 [ext_resource type="Script" uid="uid://c152hvhl6bt57" path="res://scripts/enemy/slime_chase_state.gd" id="5_g7c64"]
