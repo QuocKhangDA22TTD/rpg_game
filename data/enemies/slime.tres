@@ -2,13 +2,13 @@
 
 [ext_resource type="AnimationLibrary" uid="uid://w3mb5qt2lcco" path="res://data/animaitons/slime_anim.res" id="1_hjcbr"]
 [ext_resource type="Script" uid="uid://caw6e3cxvhnos" path="res://scripts/data/enemy_data.gd" id="1_j53m2"]
-[ext_resource type="Script" uid="uid://b3st7tlisfq5d" path="res://scripts/enemy/enemy_state.gd" id="3_2pi8n"]
-[ext_resource type="Script" uid="uid://dwt32hvdxfg87" path="res://scripts/enemy/idle_state.gd" id="4_g7c64"]
-[ext_resource type="Script" uid="uid://c152hvhl6bt57" path="res://scripts/enemy/slime_chase_state.gd" id="5_g7c64"]
-[ext_resource type="Script" uid="uid://u14cnum8qsgi" path="res://scripts/enemy/patrol_state.gd" id="6_sdq6s"]
-[ext_resource type="Script" uid="uid://d02u157pnnk1v" path="res://scripts/enemy/attack_state.gd" id="7_qlfju"]
-[ext_resource type="Script" uid="uid://dh5hcns2relew" path="res://scripts/enemy/hit_state.gd" id="8_qlfju"]
-[ext_resource type="Script" uid="uid://c6ey0a2anu52n" path="res://scripts/enemy/die_state.gd" id="9_w2osu"]
+[ext_resource type="Script" uid="uid://b3st7tlisfq5d" path="res://scripts/entities/enemies/enemy_state.gd" id="3_2pi8n"]
+[ext_resource type="Script" uid="uid://dwt32hvdxfg87" path="res://scripts/entities/enemies/idle_state.gd" id="4_g7c64"]
+[ext_resource type="Script" uid="uid://c152hvhl6bt57" path="res://scripts/entities/enemies/slime_chase_state.gd" id="5_g7c64"]
+[ext_resource type="Script" uid="uid://u14cnum8qsgi" path="res://scripts/entities/enemies/patrol_state.gd" id="6_sdq6s"]
+[ext_resource type="Script" uid="uid://d02u157pnnk1v" path="res://scripts/entities/enemies/attack_state.gd" id="7_qlfju"]
+[ext_resource type="Script" uid="uid://dh5hcns2relew" path="res://scripts/entities/enemies/hit_state.gd" id="8_qlfju"]
+[ext_resource type="Script" uid="uid://c6ey0a2anu52n" path="res://scripts/entities/enemies/die_state.gd" id="9_w2osu"]
 
 [sub_resource type="Resource" id="Resource_sdq6s"]
 script = ExtResource("4_g7c64")
