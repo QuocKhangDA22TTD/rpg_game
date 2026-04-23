@@ -79,4 +79,6 @@ func take_damage(amount, source = null): # source là nguồn gây sát thương
 		change_state(get_state(DieState))
 		return
 	
-	change_state(get_state(HitState))
+	var hit_state = get_state(HitState)
+	hit_state.damage_source = source # Truyền nguồn gây sát thương vào hit state để có thể sử dụng nếu cần
+	change_state(hit_state)
