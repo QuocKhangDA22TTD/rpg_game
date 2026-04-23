@@ -9,7 +9,7 @@ extends "res://scripts/system/inventory/slot_ui.gd"
 func update_ui():
 	# Trash slot luôn hiển thị icon thùng rác cố định
 	# Không cần update gì cả, icon đã set sẵn trong scene
-	pass
+	pass 
 
 
 # Override hàm _can_drop_data
