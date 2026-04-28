@@ -74,11 +74,6 @@ func distance_to_player():
 func take_damage(amount, source = null): # source là nguồn gây sát thương, có thể là player hoặc một cái gì đó khác
 	hp -= amount
 	
-	# Kiểm tra nếu hp <= 0 để vào trạng thái chết
-	if hp <= 0:
-		change_state(get_state(DieState))
-		return
-	
 	var hit_state = get_state(HitState)
 	hit_state.damage_source = source # Truyền nguồn gây sát thương vào hit state để có thể sử dụng nếu cần
 	change_state(hit_state)
