@@ -1,4 +1,4 @@
-[gd_resource type="Resource" format=3 uid="uid://2oxjf8hoxd7c"]
+[gd_resource type="Resource" script_class="MeleeWeaponData" format=3 uid="uid://2oxjf8hoxd7c"]
 
 [ext_resource type="Texture2D" uid="uid://833exq3glr5w" path="res://assets/sword.png" id="1_dcagp"]
 [ext_resource type="Script" uid="uid://bwmnw4trsr1hf" path="res://scripts/system/combat/melee_attack.gd" id="3_melee"]
