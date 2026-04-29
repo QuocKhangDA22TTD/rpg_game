@@ -104,7 +104,8 @@ func equip_weapon(slot: Slot):
 	# Cập nhật sprite vũ khí của player
 	GameManager.player.weapon_sprite_2d.texture = slot.item.weapon_texture
 	# Cập nhật texture hiệu ứng tấn công của player
-	GameManager.player.effect_sprite_2d.texture = slot.item.slash_effect_texture
+	if slot.item.attack_behavior is MeleeAttack:
+		GameManager.player.effect_sprite_2d.texture = slot.item.slash_effect_texture
 
 
 func unequip_weapon():
