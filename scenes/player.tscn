@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://duplrhxctrtde" path="res://assets/player.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dvilgeii024ul" path="res://scripts/entities/player/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://833exq3glr5w" path="res://assets/sword.png" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://dw7p628bxvoo6" path="res://scripts/system/combat/hitbox.gd" id="3_qhqgy"]
 
 [sub_resource type="Animation" id="Animation_g2els"]
@@ -706,7 +707,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(0, 0),
 "update": 0,
-"values": [Vector2(1, -7), Vector2(-7, -6)]
+"values": [Vector2(1, 7), Vector2(-7, 6)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -802,7 +803,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(0, 0),
 "update": 0,
-"values": [Vector2(5, -12), Vector2(-6, -5)]
+"values": [Vector2(5, 1), Vector2(-6, 7)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -898,7 +899,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(0, 0),
 "update": 0,
-"values": [Vector2(-1, -12), Vector2(6, -7)]
+"values": [Vector2(-1, 1), Vector2(6, 6)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1403,11 +1404,13 @@ position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_g2els")
 
 [node name="WeaponVisual" type="Node2D" parent="." unique_id=1583433285]
+position = Vector2(0, -13)
 
 [node name="WeaponPivot" type="Node2D" parent="WeaponVisual" unique_id=396260175]
 
 [node name="WeaponSprite2D" type="Sprite2D" parent="WeaponVisual/WeaponPivot" unique_id=1626332226]
 visible = false
+texture = ExtResource("3_dqkch")
 
 [node name="EffectSprite2D" type="Sprite2D" parent="WeaponVisual/WeaponPivot" unique_id=253292181]
 visible = false
