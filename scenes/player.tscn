@@ -456,6 +456,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponPivot/WeaponSprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_f1ej7"]
 resource_name = "slash_down"
@@ -503,6 +515,18 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "clips": PackedStringArray("hitbox_down"),
 "times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WeaponPivot/WeaponSprite2D:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [Vector2(6, -6)]
 }
 
 [sub_resource type="Animation" id="Animation_jej6c"]
@@ -552,6 +576,18 @@ tracks/3/keys = {
 "clips": PackedStringArray("hitbox_side"),
 "times": PackedFloat32Array(0)
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WeaponPivot/WeaponSprite2D:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [Vector2(6, -6)]
+}
 
 [sub_resource type="Animation" id="Animation_oprun"]
 resource_name = "slash_up"
@@ -599,6 +635,18 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "clips": PackedStringArray("hitbox_up"),
 "times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WeaponPivot/WeaponSprite2D:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, -6)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f1ej7"]
@@ -1026,7 +1074,6 @@ shape = SubResource("CircleShape2D_g2els")
 
 [node name="WeaponSprite2D" type="Sprite2D" parent="WeaponVisual/WeaponPivot" unique_id=1626332226]
 visible = false
-offset = Vector2(6, -6)
 
 [node name="EffectSprite2D" type="Sprite2D" parent="WeaponVisual/WeaponPivot" unique_id=253292181]
 visible = false
