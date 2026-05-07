@@ -606,6 +606,94 @@ tracks/6/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_ujl30"]
+resource_name = "bow_idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponPivot/WeaponSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponPivot/WeaponSprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponPivot/WeaponSprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WeaponPivot/WeaponSprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WeaponPivot/WeaponSprite2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [0.7853981633974483]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WeaponPivot/WeaponSprite2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [Vector2(6, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("WeaponPivot/WeaponSprite2D:offset")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_ke2ow"]
 resource_name = "bow_release"
 length = 0.45
@@ -986,6 +1074,7 @@ tracks/7/keys = {
 _data = {
 &"RESET": SubResource("Animation_3v2ag"),
 &"bow_draw": SubResource("Animation_l71n6"),
+&"bow_idle": SubResource("Animation_ujl30"),
 &"bow_release": SubResource("Animation_ke2ow"),
 &"slash_down": SubResource("Animation_f1ej7"),
 &"slash_side": SubResource("Animation_jej6c"),
@@ -1387,7 +1476,7 @@ _data = {
 &"slash_effect_up": SubResource("Animation_4r5pv")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=955801447 node_paths=PackedStringArray("camera_2d", "animation_player", "sprite_2d", "weapon_sprite_2d", "weapon_pivot", "effect_sprite_2d", "hitbox")]
+[node name="Player" type="CharacterBody2D" unique_id=955801447 node_paths=PackedStringArray("camera_2d", "animation_player", "sprite_2d", "weapon_sprite_2d", "weapon_pivot", "effect_sprite_2d", "hitbox", "animation_weapon")]
 script = ExtResource("1_g2els")
 camera_2d = NodePath("Camera2D")
 animation_player = NodePath("AnimationPlayer")
@@ -1396,6 +1485,7 @@ weapon_sprite_2d = NodePath("WeaponVisual/WeaponPivot/WeaponSprite2D")
 weapon_pivot = NodePath("WeaponVisual/WeaponPivot")
 effect_sprite_2d = NodePath("WeaponVisual/WeaponPivot/EffectSprite2D")
 hitbox = NodePath("WeaponVisual/WeaponPivot/Hitbox")
+animation_weapon = NodePath("WeaponVisual/AnimationWeapon")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1986414232]
 zoom = Vector2(4, 4)

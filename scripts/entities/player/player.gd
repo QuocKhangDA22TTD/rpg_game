@@ -1,24 +1,16 @@
 # Script điều khiển nhân vật người chơi
 extends CharacterBody2D
 
-# Tốc độ di chuyển của nhân vật
-@export var speed: float = 80.0
-# Tham chiếu đến camera theo dõi nhân vật
-@export var camera_2d: Camera2D
-# Tham chiếu đến animation player để phát hoạt ảnh
-@export var animation_player: AnimationPlayer
-# Tham chiếu đến sprite của nhân vật
-@export var sprite_2d: Sprite2D
-# Tham chiếu đến vũ khí đang được cầm
-@export var current_weapon: WeaponData
-# tham chiếu đến sprite cho vũ khí
-@export var weapon_sprite_2d: Sprite2D
-# tham chiếu đến điểm gốc để xoay vũ khí
-@export var weapon_pivot: Node2D
-# Tham chiếu đến sprite hiệu ứng tấn công
-@export var effect_sprite_2d: Sprite2D
-# Tham chiếu đến hitbox để xử lý va chạm tấn công
-@export var hitbox: Hitbox
+@export var speed: float = 80.0 # Tốc độ di chuyển của nhân vật
+@export var camera_2d: Camera2D # Tham chiếu đến camera theo dõi nhân vật
+@export var animation_player: AnimationPlayer # Tham chiếu đến animation player để phát hoạt ảnh
+@export var sprite_2d: Sprite2D # Tham chiếu đến sprite của nhân vật
+@export var current_weapon: WeaponData # Tham chiếu đến vũ khí đang được cầm
+@export var weapon_sprite_2d: Sprite2D # tham chiếu đến sprite cho vũ khí
+@export var weapon_pivot: Node2D # tham chiếu đến điểm gốc để xoay vũ khí
+@export var effect_sprite_2d: Sprite2D # Tham chiếu đến sprite hiệu ứng tấn công
+@export var hitbox: Hitbox # Tham chiếu đến hitbox để xử lý va chạm tấn công
+@export var animation_weapon: AnimationPlayer # Tham chiếu đến animation player để phát hoạt ảnh vũ khí
 
 # Hướng cuối cùng nhân vật đang quay mặt
 var last_direction: String = "down"
