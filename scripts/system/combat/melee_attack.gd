@@ -86,6 +86,8 @@ func handle_input(user, weapon_data, input_state):
 
 	if input_state.just_pressed:
 		execute(user, weapon_data)
+	elif not is_executing:
+		user.weapon_sprite_2d.visible = false # Ẩn vũ khí nếu không đang tấn công
 
 # Hàm xử lý khi Hitbox va chạm với enemy
 func _on_hitbox_hit_enemy(enemy: Node2D) -> void:
