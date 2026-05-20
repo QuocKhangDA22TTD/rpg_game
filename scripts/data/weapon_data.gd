@@ -11,4 +11,12 @@ class_name WeaponData
 
 @export var weapon_texture: Texture2D	# texture của vũ khí
 
+enum WeaponType {
+	MELEE,
+	RANGED,
+	MAGIC
+	}
+
+@export var weapon_type: WeaponType		# loại vũ khí
+
 @export var attack_behavior: AttackBehavior	# hành vi tấn công của vũ khí

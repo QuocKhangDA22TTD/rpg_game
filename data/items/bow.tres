@@ -16,6 +16,7 @@ region = Rect2(0, 0, 33, 32)
 script = ExtResource("1_iqlgq")
 damage = 2.0
 weapon_texture = ExtResource("1_1458k")
+weapon_type = 1
 attack_behavior = SubResource("Resource_thjit")
 id = "bow"
 name = "bow"
