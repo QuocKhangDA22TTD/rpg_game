@@ -8,6 +8,9 @@ func _physics_process(delta: float) -> void:
 	var velocity = direction * speed
 	position += velocity * delta
 
+	if rotation != direction.angle():
+		rotation = direction.angle()  # Xoay projectile theo hướng di chuyển
+
 # Xử lý va chạm với kẻ địch
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy") and body.has_method("take_damage"):
