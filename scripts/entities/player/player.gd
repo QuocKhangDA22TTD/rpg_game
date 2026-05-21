@@ -130,9 +130,6 @@ func _update_animation_and_direction():
 
 
 func _handle_attack_input():
-	if is_dodging or animation_player.current_animation.begins_with("melee_attack"):
-		return # Không thể tấn công nếu đang dodge và animation tấn công melee đang phát
-	
 	if current_weapon == null or current_weapon.attack_behavior == null:
 		return  # Không có vũ khí hoặc vũ khí không có hành vi tấn công, bỏ qua xử lý tấn công
 		
