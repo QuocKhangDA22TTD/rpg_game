@@ -114,9 +114,21 @@ func equip_weapon(slot: Slot):
 
 
 func unequip_weapon():
+	# Dừng animation vũ khí nếu đang phát
+	GameManager.player.animation_weapon.stop()
+
+	# gán null cho vũ khí hiện tại của player
 	GameManager.player.current_weapon = null
+
+	# gán null cho texture của weapon_sprite_2d và effect_sprite_2d và ẩn chúng đi
 	GameManager.player.weapon_sprite_2d.texture = null
 	GameManager.player.effect_sprite_2d.texture = null
+	GameManager.player.weapon_sprite_2d.visible = false
+	GameManager.player.effect_sprite_2d.visible = false
+
+	# gán null cho texture của arm_sprite_2d và ẩn nó đi
+	GameManager.player.arm_sprite_2d.texture = null
+	GameManager.player.arm_sprite_2d.visible = false
 
 
 func _on_inventory_changed():
