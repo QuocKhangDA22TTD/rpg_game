@@ -20,8 +20,9 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_ba4lm")
 
-[node name="World" type="Node2D" unique_id=2114139567]
+[node name="World" type="Node2D" unique_id=2114139567 node_paths=PackedStringArray("enemies_container")]
 script = ExtResource("1_q5onr")
+enemies_container = NodePath("Entities/Enemies")
 
 [node name="Maps" type="Node2D" parent="." unique_id=83877726]
 
