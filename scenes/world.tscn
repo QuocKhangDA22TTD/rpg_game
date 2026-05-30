@@ -180,16 +180,16 @@ texture_region_size = Vector2i(32, 32)
 1:6/0 = 0
 2:6/0 = 0
 5:9/0 = 0
-5:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(5, -16, 16, -16, 16, -6)
+5:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 8, -16, 8, -8, 16, -8)
 5:9/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_oo54l")
 5:8/0 = 0
-5:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -10, 5, -10, 5, 16, 16, 16)
+5:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(7, -8, 16, -8, 16, 16, 7, 16)
 5:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7iits")
 6:8/0 = 0
-6:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -10, -5, -10, -5, 16, -16, 16)
+6:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7, -8, -16, -8, -16, 16, -7, 16)
 6:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_kpybi")
 6:9/0 = 0
-6:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -16, -16, -16, -16, -6)
+6:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -8, -16, -8, -8, -16, -8)
 6:9/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ctatt")
 
 [sub_resource type="TileSet" id="TileSet_l20p6"]
