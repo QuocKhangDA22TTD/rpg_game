@@ -6,10 +6,12 @@ extends CharacterBody2D
 @export var animation_player: AnimationPlayer
 @export var health_bar: TextureProgressBar
 @export var damage_number_scene: PackedScene # Cảnh để hiển thị số sát thương khi Enemy bị tấn công
+@export var navigation_agent_2d: NavigationAgent2D
 
 var current_state: EnemyState
 var current_health: int # Máu hiện tại của Enemy
 var speed: float
+var desired_velocity: Vector2 = Vector2.ZERO # Tốc độ mong muốn được tính toán từ state hiện tại, sẽ được gửi đến NavigationAgent2D để tránh va chạm
 
 func _ready():
 	current_health = data.max_hp # Khởi tạo máu hiện tại bằng máu tối đa từ EnemyData
@@ -18,8 +20,10 @@ func _ready():
 	health_bar.visible = false # ẩn thanh máu khi chưa bị tấn công
 	speed = data.speed # Khởi tạo tốc độ từ EnemyData
 
-	for state in data.states:
-		states.append(state)
+	# Tạo instance riêng cho mỗi state thay vì dùng resource chia sẻ
+	for state_resource in data.states:
+		var state_instance = state_resource.duplicate()  # Tạo copy riêng
+		states.append(state_instance)
 	
 	# GÁN ANIMATION
 	if data.animation_library:
@@ -30,17 +34,30 @@ func _ready():
 	# bắt đầu state đầu tiên
 	if states.size() > 0:
 		change_state(states[0])
+	
+	# Kết nối signal velocity_computed từ NavigationAgent2D
+	if navigation_agent_2d:
+		navigation_agent_2d.velocity_computed.connect(_on_velocity_computed)
 
 
 func _physics_process(delta):
 	if current_state:
 		current_state.update(self, delta)
+
+	# Gửi desired velocity tới NavigationAgent2D để avoidance hoạt động
+	if navigation_agent_2d and desired_velocity != Vector2.ZERO:
+		navigation_agent_2d.set_velocity(desired_velocity)
 	
 	# lật sprite dựa trên hướng di chuyển
 	if velocity.x != 0:
 		sprite_2d.flip_h = velocity.x < 0
 
 	move_and_slide()
+
+
+func _on_velocity_computed(safe_velocity: Vector2) -> void:
+	# Nhận velocity đã được điều chỉnh bởi avoidance
+	velocity = safe_velocity
 
 
 func change_state(new_state):
