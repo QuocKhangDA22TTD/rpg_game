@@ -13,6 +13,7 @@ extends CharacterBody2D
 @export var animation_weapon: AnimationPlayer # Tham chiếu đến animation player để phát hoạt ảnh vũ khí
 @export var arrow_spawn_point: Marker2D # Tham chiếu đến điểm spawn projectile cho tấn công tầm xa
 @export var arm_sprite_2d: Sprite2D
+@export var stats: CharacterStats
 
 # Dodge settings
 @export var dodge_speed: float = 200.0 # Tốc độ dodge
@@ -34,6 +35,9 @@ var dodge_direction: Vector2 = Vector2.ZERO # Vector hướng của dodge, đư�
 
 func _ready() -> void:
 	GameManager.player = self
+
+	if stats:
+		stats = stats.duplicate() # Tạo instance riêng cho stats để mỗi player có stats riêng biệt
 
 # Xử lý vật lý và di chuyển mỗi frame
 func _physics_process(delta: float) -> void:
@@ -219,3 +223,7 @@ func spawn_ghost_effect():
 	tween.tween_property(ghost, "modulate:a", 0.0, 0.3)
 	# Xóa Node ghost ngay sau khi tween chạy xong
 	tween.tween_callback(ghost.queue_free)
+
+
+func take_damage(amount: float):
+	print("Player takes damage")
