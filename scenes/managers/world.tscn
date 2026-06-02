@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bptsnoc6m8hva"]
 
 [ext_resource type="Texture2D" uid="uid://eec23hcg0uyb" path="res://assets/tile.png" id="1_e3hyu"]
-[ext_resource type="Script" uid="uid://dx76qsv8hh17s" path="res://scripts/core/scripts/world.gd" id="1_q5onr"]
+[ext_resource type="Script" uid="uid://dx76qsv8hh17s" path="res://scripts/core/world.gd" id="1_q5onr"]
 [ext_resource type="PackedScene" uid="uid://cpitsgqfub6hn" path="res://scenes/gameplay/player.tscn" id="2_q5onr"]
 [ext_resource type="PackedScene" uid="uid://cfvxrdmvfuaw" path="res://scenes/ui/item_drop.tscn" id="5_xo05s"]
 [ext_resource type="Resource" uid="uid://2oxjf8hoxd7c" path="res://data/items/sword.tres" id="6_dss4m"]
