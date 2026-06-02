@@ -3,7 +3,7 @@ class_name MeleeAttack
 
 var current_weapon_data: WeaponData # Lưu trữ WeaponData hiện tại để sử dụng trong hàm xử lý va chạm
 var is_executing: bool = false # Biến để kiểm tra xem đang trong quá trình thực hiện tấn công hay không
-var is_ready: bool = false # Biến để kiểm tra xem đã kết nối tín hiệu hit_enemy của hitbox hay chưa, tránh kết nối nhiều lần
+var is_ready: bool = false # Biến để kiểm tra xem đã kết nối tín hiệu hit_hurtbox của hitbox hay chưa, tránh kết nối nhiều lần
 var dash_direction: Vector2 = Vector2.ZERO
 var dash_timer: float = 0.0
 var dash_duration: float = 0.3
@@ -16,8 +16,8 @@ func ensure_ready(user):
 		return
 	
 	var hitbox = user.hitbox
-	if not hitbox.hit_enemy.is_connected(_on_hitbox_hit_enemy):
-		hitbox.hit_enemy.connect(_on_hitbox_hit_enemy) # Kết nối tín hiệu hit_enemy của hitbox với hàm xử lý _on_hitbox_hit_enemy
+	if not hitbox.hit_hurtbox.is_connected(_on_hitbox_hit_hurtbox):
+		hitbox.hit_hurtbox.connect(_on_hitbox_hit_hurtbox) # Kết nối tín hiệu hit_hurtbox của hitbox với hàm xử lý va chạm
 
 	is_ready = true
 
@@ -110,11 +110,11 @@ func is_attacking() -> bool:
 	return is_executing
 
 
-# Hàm xử lý khi Hitbox va chạm với enemy
-func _on_hitbox_hit_enemy(enemy: Node2D) -> void:
-	enemy.take_damage(current_weapon_data.damage, GameManager.player) # Gọi hàm take_damage trên enemy với lượng damage và nguồn tấn công (source)
+# Hàm xử lý khi Hitbox va chạm với Hurtbox
+func _on_hitbox_hit_hurtbox(hurtbox: Area2D) -> void:
+	if hurtbox.has_method("take_damage"):
+		hurtbox.take_damage(current_weapon_data.damage, GameManager.player)
 	
-	# Knockback ngược lại player
 	knockback_direction = -dash_direction * 300
 	knockback_timer = knockback_duration
 
