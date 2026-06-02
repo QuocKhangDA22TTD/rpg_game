@@ -4,6 +4,12 @@ class_name MeleeAttack
 var current_weapon_data: WeaponData # Lưu trữ WeaponData hiện tại để sử dụng trong hàm xử lý va chạm
 var is_executing: bool = false # Biến để kiểm tra xem đang trong quá trình thực hiện tấn công hay không
 var is_ready: bool = false # Biến để kiểm tra xem đã kết nối tín hiệu hit_enemy của hitbox hay chưa, tránh kết nối nhiều lần
+var dash_direction: Vector2 = Vector2.ZERO
+var dash_timer: float = 0.0
+var dash_duration: float = 0.3
+var knockback_timer: float = 0.0
+var knockback_duration: float = 0.15
+var knockback_direction: Vector2 = Vector2.ZERO
 
 func ensure_ready(user):
 	if is_ready:
@@ -27,6 +33,8 @@ func execute(user, weapon_data):
 	
 	# Tính vector từ nhân vật đến chuột
 	var direction = (mouse_pos - player_pos).normalized()
+
+	dash_timer = dash_duration
 	
 	# Xác định hướng tấn công dựa trên góc
 	var attack_direction: String
@@ -38,21 +46,25 @@ func execute(user, weapon_data):
 		attack_direction = "side"
 		user.sprite_2d.flip_h = false
 		user.weapon_pivot.scale.x = 1
+		dash_direction = Vector2.RIGHT
 	elif angle > PI/4 and angle < 3*PI/4:
 		# Hướng xuống
 		attack_direction = "down"
 		user.sprite_2d.flip_h = false
 		user.weapon_pivot.scale.x = 1
+		dash_direction = Vector2.DOWN
 	elif angle < -PI/4 and angle > -3*PI/4:
 		# Hướng lên
 		attack_direction = "up"
 		user.sprite_2d.flip_h = false
 		user.weapon_pivot.scale.x = 1
+		dash_direction = Vector2.UP
 	else:
 		# Hướng trái
 		attack_direction = "side"
 		user.sprite_2d.flip_h = true
 		user.weapon_pivot.scale.x = -1
+		dash_direction = Vector2.LEFT
 	
 	# Cập nhật vị trí hiệu ứng tấn công dựa trên weapon_data
 	user.effect_sprite_2d.offset = weapon_data.effect_offset
@@ -97,6 +109,30 @@ func handle_input(user, weapon_data, input_state):
 func is_attacking() -> bool:
 	return is_executing
 
+
 # Hàm xử lý khi Hitbox va chạm với enemy
 func _on_hitbox_hit_enemy(enemy: Node2D) -> void:
 	enemy.take_damage(current_weapon_data.damage, GameManager.player) # Gọi hàm take_damage trên enemy với lượng damage và nguồn tấn công (source)
+	
+	# Knockback ngược lại player
+	knockback_direction = -dash_direction * 300
+	knockback_timer = knockback_duration
+
+
+func update_dash(user, delta: float):
+	if is_executing:
+		# Dash với easing
+		if dash_timer > 0:
+			var progress = 1.0 - (dash_timer / dash_duration)
+			var eased = ease(progress, -2.0)  # Tăng nhanh rồi chậm dần
+			var speed = 200 * (1.0 - eased)
+			user.global_position += dash_direction * speed * delta
+			dash_timer -= delta
+		
+		# Knockback với easing
+		if knockback_timer > 0:
+			var progress = 1.0 - (knockback_timer / knockback_duration)
+			var eased = ease(progress, -2.0)
+			var speed = 300 * (1.0 - eased)
+			user.global_position += knockback_direction.normalized() * speed * delta
+			knockback_timer -= delta

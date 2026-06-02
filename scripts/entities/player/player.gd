@@ -50,6 +50,9 @@ func _physics_process(delta: float) -> void:
 		velocity = input_vector * speed
 	
 	move_and_slide()
+
+	if animation_player.current_animation.begins_with("melee_attack"):
+		current_weapon.attack_behavior.update_dash(self, delta)
 	
 	_handle_attack_input()
 	_handle_dodge_input()
@@ -186,3 +189,33 @@ func _update_dodge(delta: float):
 		velocity = Vector2.ZERO
 	else:
 		velocity = dodge_direction * dodge_speed
+		
+		spawn_ghost_effect()
+
+
+func spawn_ghost_effect():
+	# 1. Tạo một Sprite2D mới bản sao
+	var ghost = Sprite2D.new()
+	ghost.texture = sprite_2d.texture
+	ghost.hframes = sprite_2d.hframes
+	ghost.vframes = sprite_2d.vframes
+	ghost.frame = sprite_2d.frame
+	ghost.global_position = global_position
+	ghost.flip_h = sprite_2d.flip_h
+	ghost.offset = sprite_2d.offset
+	
+	# Giữ bộ lọc pixel không bị mờ
+	ghost.texture_filter = 1
+	
+	# Đổi màu bóng ma thành màu xám đục giống khói bụi
+	# ghost.modulate = Color(0.6, 0.6, 0.6, 0.7) 
+	
+	# Thêm vào thế giới game
+	get_parent().add_child(ghost)
+	
+	# 2. Dùng TWEEN để làm mờ và tự xóa bóng ma
+	var tween = create_tween()
+	# Làm mờ Alpha về 0 trong 0.3 giây
+	tween.tween_property(ghost, "modulate:a", 0.0, 0.3)
+	# Xóa Node ghost ngay sau khi tween chạy xong
+	tween.tween_callback(ghost.queue_free)
