@@ -3,6 +3,7 @@ extends Area2D
 @export var exist_timer = 0.0
 @export var max_exist_time = 3.0
 
+var owner_entity: Node = null # Biến để lưu reference đến entity sở hữu viên đạn, dùng để tránh va chạm với chính mình
 var speed: float = 0.0
 var direction: Vector2 = Vector2.ZERO
 
@@ -25,10 +26,14 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
+	if area == owner_entity:
+		return  # Không va chạm với chính mình
+
 	if area.is_in_group("enemy") and area.has_method("take_damage") and speed != 0.0:
 		area.take_damage(2.0, self) # Gọi hàm take_damage trên kẻ địch, truyền vào lượng sát thương
 		queue_free()  # Xóa projectile sau khi va chạm
+	
 	elif area.is_in_group("player") and speed != 0.0:
 		if area.has_method("take_damage"):
-			area.take_damage(2.0, self)
-		queue_free()
+			area.take_damage(2.0, self) # Gọi hàm take_damage trên player, truyền vào lượng sát thương
+		queue_free() # Xóa projectile sau khi va chạm
