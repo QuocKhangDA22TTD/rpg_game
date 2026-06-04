@@ -237,7 +237,18 @@ func take_damage(amount: float, source = null):
 	if stats:
 		stats.current_health -= amount
 		stats.current_health = clampi(stats.current_health, 0, stats.max_health)
+
+		# Tạm thời tắt monitorable để tránh bị trùng lặp va chạm khi đang trong hiệu ứng hit
+		hurtbox.set_deferred("monitorable", false)
+
+		# Phát hiệu ứng hit để làm nhân vật nhấp nháy khi bị đánh trúng
 		animation_body_effect.play("hit_flash")
+
+		# Chờ hiệu ứng hit kết thúc trước khi bật lại monitorable để nhận va chạm tiếp theo
+		await animation_body_effect.animation_finished
+
+		# Bật lại monitorable sau khi hiệu ứng hit kết thúc để có thể nhận va chạm tiếp theo
+		hurtbox.set_deferred("monitorable", true)
 		# TODO: Cập nhật UI thanh máu player ở đây nếu có
 
 func apply_knockback(direction: Vector2, force: float, duration: float):
