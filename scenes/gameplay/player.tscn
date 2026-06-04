@@ -2404,7 +2404,7 @@ visible = false
 [node name="EffectSprite2D" type="Sprite2D" parent="WeaponVisual/WeaponPivot" unique_id=253292181]
 visible = false
 
-[node name="Hitbox" type="Area2D" parent="WeaponVisual/WeaponPivot" unique_id=1947067086 groups=["player"]]
+[node name="Hitbox" type="Area2D" parent="WeaponVisual/WeaponPivot" unique_id=1947067086]
 monitoring = false
 script = ExtResource("3_qhqgy")
 
