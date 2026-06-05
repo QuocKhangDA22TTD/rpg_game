@@ -33,11 +33,13 @@ avoidance_enabled = true
 radius = 8.0
 
 [node name="HealthBar" type="TextureProgressBar" parent="." unique_id=872189710]
-offset_right = 32.0
-offset_bottom = 16.0
+offset_right = 30.0
+offset_bottom = 8.0
+value = 100.0
 texture_under = ExtResource("3_c4w8v")
 texture_over = ExtResource("3_4ra3w")
 texture_progress = ExtResource("5_xwavj")
+texture_progress_offset = Vector2(3, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1148016886]
 position = Vector2(0, -5)
