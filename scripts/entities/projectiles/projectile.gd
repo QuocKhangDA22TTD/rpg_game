@@ -30,10 +30,10 @@ func _on_area_entered(area: Area2D) -> void:
 		return  # Không va chạm với chính mình
 
 	if area.is_in_group("enemy") and area.has_method("take_damage") and speed != 0.0:
-		area.take_damage(2.0, self) # Gọi hàm take_damage trên kẻ địch, truyền vào lượng sát thương
+		area.take_damage(40.0, self) # Gọi hàm take_damage trên kẻ địch, truyền vào lượng sát thương
 		queue_free()  # Xóa projectile sau khi va chạm
 	
 	elif area.is_in_group("player") and speed != 0.0:
 		if area.has_method("take_damage"):
-			area.take_damage(2.0, self) # Gọi hàm take_damage trên player, truyền vào lượng sát thương
+			area.take_damage(40.0, self) # Gọi hàm take_damage trên player, truyền vào lượng sát thương
 		queue_free() # Xóa projectile sau khi va chạm
