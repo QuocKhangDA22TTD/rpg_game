@@ -1,42 +1,42 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dd3g26wg0xp5c"]
 
-[ext_resource type="AnimationLibrary" uid="uid://w3mb5qt2lcco" path="res://data/animaitons/slime_anim.res" id="1_hjcbr"]
-[ext_resource type="Script" uid="uid://caw6e3cxvhnos" path="res://scripts/data/enemy_data.gd" id="1_j53m2"]
-[ext_resource type="Script" uid="uid://b3st7tlisfq5d" path="res://scripts/entities/enemies/base/enemy_state.gd" id="3_2pi8n"]
-[ext_resource type="Script" uid="uid://dwt32hvdxfg87" path="res://scripts/entities/enemies/common_state/idle_state.gd" id="4_g7c64"]
-[ext_resource type="Script" uid="uid://c152hvhl6bt57" path="res://scripts/entities/enemies/slime/slime_chase_state.gd" id="5_g7c64"]
-[ext_resource type="Script" uid="uid://c8k6lb6uwjhxt" path="res://scripts/entities/enemies/slime/slime_patrol_state.gd" id="5_mc08e"]
-[ext_resource type="Script" uid="uid://bh1w41qqy51te" path="res://scripts/entities/enemies/common_state/dash_attack_state.gd" id="7_mc08e"]
-[ext_resource type="Script" uid="uid://dh5hcns2relew" path="res://scripts/entities/enemies/common_state/hit_state.gd" id="8_qlfju"]
-[ext_resource type="Script" uid="uid://c6ey0a2anu52n" path="res://scripts/entities/enemies/common_state/die_state.gd" id="9_w2osu"]
+[ext_resource type="AnimationLibrary" uid="uid://w3mb5qt2lcco" path="res://data/animaitons/slime_anim.res" id="1_57a0h"]
+[ext_resource type="Script" uid="uid://caw6e3cxvhnos" path="res://scripts/data/enemy_data.gd" id="2_erqfb"]
+[ext_resource type="Script" uid="uid://b3st7tlisfq5d" path="res://scripts/entities/enemies/base/enemy_state.gd" id="3_8a2r4"]
+[ext_resource type="Script" uid="uid://dwt32hvdxfg87" path="res://scripts/entities/enemies/common_state/idle_state.gd" id="4_ixv53"]
+[ext_resource type="Script" uid="uid://c8k6lb6uwjhxt" path="res://scripts/entities/enemies/slime/slime_patrol_state.gd" id="5_lgy7w"]
+[ext_resource type="Script" uid="uid://c152hvhl6bt57" path="res://scripts/entities/enemies/slime/slime_chase_state.gd" id="6_xpsk6"]
+[ext_resource type="Script" uid="uid://bh1w41qqy51te" path="res://scripts/entities/enemies/common_state/dash_attack_state.gd" id="7_bx8dv"]
+[ext_resource type="Script" uid="uid://dh5hcns2relew" path="res://scripts/entities/enemies/common_state/hit_state.gd" id="8_8u5ea"]
+[ext_resource type="Script" uid="uid://c6ey0a2anu52n" path="res://scripts/entities/enemies/common_state/die_state.gd" id="9_by15d"]
 
 [sub_resource type="Resource" id="Resource_sdq6s"]
-script = ExtResource("4_g7c64")
+script = ExtResource("4_ixv53")
 metadata/_custom_type_script = "uid://dwt32hvdxfg87"
 
 [sub_resource type="Resource" id="Resource_n6ilt"]
-script = ExtResource("5_mc08e")
+script = ExtResource("5_lgy7w")
 
 [sub_resource type="Resource" id="Resource_w2osu"]
-script = ExtResource("5_g7c64")
+script = ExtResource("6_xpsk6")
 metadata/_custom_type_script = "uid://c152hvhl6bt57"
 
 [sub_resource type="Resource" id="Resource_3keqd"]
-script = ExtResource("7_mc08e")
+script = ExtResource("7_bx8dv")
 metadata/_custom_type_script = "uid://bh1w41qqy51te"
 
 [sub_resource type="Resource" id="Resource_64lo3"]
-script = ExtResource("8_qlfju")
+script = ExtResource("8_8u5ea")
 metadata/_custom_type_script = "uid://dh5hcns2relew"
 
 [sub_resource type="Resource" id="Resource_hdd7q"]
-script = ExtResource("9_w2osu")
+script = ExtResource("9_by15d")
 metadata/_custom_type_script = "uid://c6ey0a2anu52n"
 
 [resource]
-script = ExtResource("1_j53m2")
+script = ExtResource("2_erqfb")
 id = "slime"
 display_name = "slime"
-animation_library = ExtResource("1_hjcbr")
-states = Array[ExtResource("3_2pi8n")]([SubResource("Resource_sdq6s"), SubResource("Resource_n6ilt"), SubResource("Resource_w2osu"), SubResource("Resource_3keqd"), SubResource("Resource_64lo3"), SubResource("Resource_hdd7q")])
+animation_library = ExtResource("1_57a0h")
+states = Array[ExtResource("3_8a2r4")]([SubResource("Resource_sdq6s"), SubResource("Resource_n6ilt"), SubResource("Resource_w2osu"), SubResource("Resource_3keqd"), SubResource("Resource_64lo3"), SubResource("Resource_hdd7q")])
 metadata/_custom_type_script = "uid://caw6e3cxvhnos"
