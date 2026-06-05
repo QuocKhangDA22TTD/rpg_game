@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8rxv02yhic67"
-path="res://.godot/imported/hud_health_bar_under.png-bb515236a442c95a3d7d71b26932ab77.ctex"
+uid="uid://cmvrptn5x6r0i"
+path="res://.godot/imported/hand_pulling_bow.png-55d003502a40c9a3f5396caceb534d6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud_health_bar_under.png"
-dest_files=["res://.godot/imported/hud_health_bar_under.png-bb515236a442c95a3d7d71b26932ab77.ctex"]
+source_file="res://assets/sprite_sheets/hand_pulling_bow.png"
+dest_files=["res://.godot/imported/hand_pulling_bow.png-55d003502a40c9a3f5396caceb534d6b.ctex"]
 
 [params]
 
