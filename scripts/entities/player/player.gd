@@ -11,7 +11,7 @@ extends CharacterBody2D
 @export var hitbox: Hitbox # Tham chiếu đến hitbox để xử lý va chạm tấn công
 @export var animation_weapon: AnimationPlayer # Tham chiếu đến animation player để phát hoạt ảnh vũ khí
 @export var animation_body_effect: AnimationPlayer
-@export var arrow_spawn_point: Marker2D # Tham chiếu đến điểm spawn projectile cho tấn công tầm xa
+@export var projectile_spawn_point: Marker2D # Tham chiếu đến điểm spawn projectile cho tấn công tầm xa
 @export var arm_sprite_2d: Sprite2D
 @export var stats: CharacterStats
 @export var hurtbox: Hurtbox # Tham chiếu đến hurtbox để nhận damage từ enemy

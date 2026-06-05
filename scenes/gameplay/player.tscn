@@ -645,7 +645,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("WeaponPivot/ArrowSpawnPoint:position")
+tracks/7/path = NodePath("WeaponPivot/ProjectileSpawnPoint:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -657,7 +657,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("WeaponPivot/ArrowSpawnPoint:visible")
+tracks/8/path = NodePath("WeaponPivot/ProjectileSpawnPoint:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -913,7 +913,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("WeaponPivot/ArrowSpawnPoint:position")
+tracks/7/path = NodePath("WeaponPivot/ProjectileSpawnPoint:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -925,7 +925,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("WeaponPivot/ArrowSpawnPoint:visible")
+tracks/8/path = NodePath("WeaponPivot/ProjectileSpawnPoint:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -1277,7 +1277,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("WeaponPivot/ArrowSpawnPoint:position")
+tracks/16/path = NodePath("WeaponPivot/ProjectileSpawnPoint:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -2322,7 +2322,7 @@ _data = {
 &"hit_flash": SubResource("Animation_xwg0q")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=955801447 node_paths=PackedStringArray("camera_2d", "animation_player", "sprite_2d", "weapon_sprite_2d", "weapon_pivot", "effect_sprite_2d", "hitbox", "animation_weapon", "animation_body_effect", "arrow_spawn_point", "arm_sprite_2d", "hurtbox") groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=955801447 node_paths=PackedStringArray("camera_2d", "animation_player", "sprite_2d", "weapon_sprite_2d", "weapon_pivot", "effect_sprite_2d", "hitbox", "animation_weapon", "animation_body_effect", "projectile_spawn_point", "arm_sprite_2d", "hurtbox") groups=["player"]]
 collision_mask = 2
 script = ExtResource("1_g2els")
 camera_2d = NodePath("Camera2D")
@@ -2334,7 +2334,7 @@ effect_sprite_2d = NodePath("WeaponVisual/WeaponPivot/EffectSprite2D")
 hitbox = NodePath("WeaponVisual/WeaponPivot/Hitbox")
 animation_weapon = NodePath("WeaponVisual/AnimationWeapon")
 animation_body_effect = NodePath("AnimationBodyEffect")
-arrow_spawn_point = NodePath("WeaponVisual/WeaponPivot/ArrowSpawnPoint")
+projectile_spawn_point = NodePath("WeaponVisual/WeaponPivot/ProjectileSpawnPoint")
 arm_sprite_2d = NodePath("WeaponVisual/WeaponPivot/ArmSprite2D")
 stats = ExtResource("2_olumy")
 hurtbox = NodePath("Hurtbox")
@@ -2386,7 +2386,7 @@ shape = SubResource("RectangleShape2D_g2els")
 [node name="AnimationHitbox" type="AnimationPlayer" parent="WeaponVisual/WeaponPivot/Hitbox" unique_id=1904638348]
 libraries/ = SubResource("AnimationLibrary_i4ail")
 
-[node name="ArrowSpawnPoint" type="Marker2D" parent="WeaponVisual/WeaponPivot" unique_id=1897923049]
+[node name="ProjectileSpawnPoint" type="Marker2D" parent="WeaponVisual/WeaponPivot" unique_id=1897923049]
 visible = false
 
 [node name="ArmSprite2D" type="Sprite2D" parent="WeaponVisual/WeaponPivot" unique_id=36738908]

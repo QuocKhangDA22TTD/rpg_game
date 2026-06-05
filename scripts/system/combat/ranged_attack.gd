@@ -91,7 +91,7 @@ func update_draw(user):
 	if not current_projectile:
 		return
 
-	current_projectile.global_position = user.arrow_spawn_point.global_position
+	current_projectile.global_position = user.projectile_spawn_point.global_position
 	current_projectile.rotation = user.weapon_pivot.global_rotation
 
 
@@ -109,7 +109,7 @@ func spawn_projectile(user):
 
 	current_projectile = projectile_scene.instantiate()
 
-	current_projectile.global_position = user.arrow_spawn_point.global_position
+	current_projectile.global_position = user.projectile_spawn_point.global_position
 	current_projectile.rotation = user.weapon_pivot.global_rotation
 	current_projectile.owner_entity = user.hurtbox # Gán hurtbox của user làm owner_entity để tránh va chạm với chính mình
 
