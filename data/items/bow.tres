@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dpmik6npurs2a" path="res://assets/sprite_sheets/bow.png" id="1_1458k"]
 [ext_resource type="Script" uid="uid://dttii2ey4xn0j" path="res://scripts/system/combat/ranged_attack.gd" id="1_hiqf6"]
 [ext_resource type="Script" uid="uid://bsj871dg1jir1" path="res://scripts/data/ranged_weapon_data.gd" id="1_iqlgq"]
+[ext_resource type="PackedScene" uid="uid://bw0lr8uaxcd7y" path="res://scenes/gameplay/arrow.tscn" id="2_thjit"]
 
 [sub_resource type="Resource" id="Resource_thjit"]
 script = ExtResource("1_hiqf6")
@@ -14,6 +15,7 @@ region = Rect2(0, 0, 33, 32)
 
 [resource]
 script = ExtResource("1_iqlgq")
+default_projectile = ExtResource("2_thjit")
 damage = 2.0
 weapon_texture = ExtResource("1_1458k")
 attack_behavior = SubResource("Resource_thjit")
