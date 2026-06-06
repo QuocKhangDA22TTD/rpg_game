@@ -1,13 +1,21 @@
 [gd_resource type="Resource" script_class="MagicWeaponData" format=3 uid="uid://dgs0vm8i0bun0"]
 
+[ext_resource type="Script" uid="uid://dvhh06sgo5l53" path="res://scripts/system/combat/magic_attack.gd" id="1_4kec7"]
 [ext_resource type="Script" uid="uid://xqt8oh76voki" path="res://scripts/data/magic_weapon_data.gd" id="1_j34uq"]
 [ext_resource type="Texture2D" uid="uid://kduhty145bju" path="res://assets/sprites/staff.png" id="1_seshs"]
+[ext_resource type="PackedScene" uid="uid://c2ixlaq2jdse0" path="res://scenes/gameplay/fireball.tscn" id="4_4kec7"]
+
+[sub_resource type="Resource" id="Resource_7mr8h"]
+script = ExtResource("1_4kec7")
+metadata/_custom_type_script = "uid://dvhh06sgo5l53"
 
 [resource]
 script = ExtResource("1_j34uq")
+spell_scene = ExtResource("4_4kec7")
 weapon_texture = ExtResource("1_seshs")
+attack_behavior = SubResource("Resource_7mr8h")
 id = "staff_of_fire"
-name = "staff_of_fire"
+name = "stsaff of fire"
 icon = ExtResource("1_seshs")
 max_stack = 1
 type = 2
