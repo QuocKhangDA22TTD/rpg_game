@@ -94,6 +94,9 @@ func update_draw(user):
 	current_projectile.global_position = user.projectile_spawn_point.global_position
 	current_projectile.rotation = user.weapon_pivot.global_rotation
 
+	current_projectile.direction = Vector2.from_angle(user.weapon_pivot.global_rotation)
+
+
 
 func release_attack(user):
 	fire_projectile(user)
@@ -106,25 +109,27 @@ func release_attack(user):
 
 func spawn_projectile(user):
 	var projectile_scene = current_weapon_data.default_projectile
-
 	current_projectile = projectile_scene.instantiate()
 
 	current_projectile.global_position = user.projectile_spawn_point.global_position
 	current_projectile.rotation = user.weapon_pivot.global_rotation
-	current_projectile.owner_entity = user.hurtbox # Gán hurtbox của user làm owner_entity để tránh va chạm với chính mình
+	current_projectile.owner_entity = user.hurtbox
+	
+	current_projectile.direction = Vector2.from_angle(user.weapon_pivot.global_rotation)
 
 	ProjectileManager.add_child(current_projectile)
 
 
 func fire_projectile(user):
-	if not current_projectile:
+aa	if not current_projectile:
 		return
 
-	current_projectile.direction = Vector2.RIGHT.rotated(
-		user.weapon_pivot.global_rotation
-	)
-
+	if current_projectile.direction == Vector2.ZERO:
+		current_projectile.direction = Vector2.from_angle(user.weapon_pivot.global_rotation)
+	
 	current_projectile = null
+
+
 
 
 func cancel_projectile():
