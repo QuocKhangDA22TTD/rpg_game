@@ -14,7 +14,8 @@ func handle_input(user, weapon_data, input_state):
 		cooldown_timer -= user.get_physics_process_delta_time()
 
 	if input_state.pressed and not user.is_dodging and cooldown_timer <= 0:
-		execute(user, current_weapon)
+		if user.has_method("use_mana") and user.use_mana(current_weapon.mana_cost):
+			execute(user, current_weapon)
 	else:
 		if user.animation_weapon.current_animation != "staff_idle":
 			user.animation_weapon.play("staff_idle")
