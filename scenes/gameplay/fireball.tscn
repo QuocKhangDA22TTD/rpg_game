@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c2ixlaq2jdse0"]
 
 [ext_resource type="PackedScene" uid="uid://rq42avbrfnh1" path="res://scenes/gameplay/projectile.tscn" id="1_30hx6"]
+[ext_resource type="PackedScene" uid="uid://bjiggoxkn17lj" path="res://scenes/gameplay/explosion.tscn" id="2_1j2fc"]
 [ext_resource type="Texture2D" uid="uid://ctxljpoyc581g" path="res://assets/sprite_sheets/fireball.png" id="2_q7pkk"]
 
 [sub_resource type="Animation" id="Animation_1j2fc"]
@@ -142,6 +143,7 @@ _data = {
 
 [node name="Fireball" unique_id=392495149 instance=ExtResource("1_30hx6")]
 damage = 160.0
+explosion_scene = ExtResource("2_1j2fc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=802821948]
 libraries/ = SubResource("AnimationLibrary_hc4ii")
