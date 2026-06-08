@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://dgs0vm8i0bun0" path="res://data/items/staff_of_fire.tres" id="6_57fr2"]
 [ext_resource type="Resource" uid="uid://2oxjf8hoxd7c" path="res://data/items/sword.tres" id="6_dss4m"]
 [ext_resource type="Resource" uid="uid://bbi5qug4kumuc" path="res://data/items/bow.tres" id="7_7t5mc"]
-[ext_resource type="Resource" uid="uid://bqys23112x6ok" path="res://data/items/potion.tres" id="8_lakw3"]
+[ext_resource type="Resource" uid="uid://bqys23112x6ok" path="res://data/items/health_potion.tres" id="8_lakw3"]
 [ext_resource type="PackedScene" uid="uid://c06klg74cglxk" path="res://scenes/ui/inventory_ui.tscn" id="9_pm21f"]
 [ext_resource type="PackedScene" uid="uid://csoqgl1rfxiss" path="res://scenes/ui/hotbar_ui.tscn" id="10_2lf6f"]
 [ext_resource type="PackedScene" uid="uid://bpagpsmqqturb" path="res://scenes/ui/hud.tscn" id="10_t2vd6"]
