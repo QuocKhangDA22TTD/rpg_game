@@ -1,9 +1,9 @@
-# Script quản lý toàn cục của game (Singleton/Autoload)
 extends Node
 
-var player
-var enemies_container
+var player # Tham chiếu đến player
+var enemies_container # Tham chiếu đến container chứa các enemy
+var input_handler # Tham chiếu đến input handler để xử lý input
+var hotbar # Tham chiếu đến hotbar UI
 
-# Khởi tạo các hệ thống game
 func _ready():
 	pass
