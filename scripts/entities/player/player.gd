@@ -44,6 +44,11 @@ func _ready() -> void:
 
 	if stats:
 		stats = stats.duplicate() # Tạo instance riêng cho stats để mỗi player có stats riêng biệt
+	
+	if GameManager.input_handler:
+		GameManager.input_handler.primary_action_pressed.connect(_on_primary_action_pressed)
+		GameManager.input_handler.interact_pressed.connect(_on_interact_pressed)
+
 
 # Xử lý vật lý và di chuyển mỗi frame
 func _physics_process(delta: float) -> void:
@@ -64,8 +69,8 @@ func _physics_process(delta: float) -> void:
 		velocity = input_vector * stats.speed
 	
 	move_and_slide()
-	
-	_handle_attack_input()
+
+	_attack_with_weapon()
 	_handle_dodge_input()
 
 	# Cập nhật last_direction theo chuột nếu cầm ranged weapon
@@ -142,17 +147,46 @@ func _update_animation_and_direction():
 			_:        animation_player.play("idle_down" + animation_suffix)
 
 
+func _on_primary_action_pressed():
+	if hotbar_execute_action():
+		return # Nếu hotbar xử lý được action thì ngừng xử lý tiếp
 
-func _handle_attack_input():
+
+func _attack_with_weapon():
 	if current_weapon == null or current_weapon.attack_behavior == null:
-		return  # Không có vũ khí hoặc vũ khí không có hành vi tấn công, bỏ qua xử lý tấn công
-		
+		return # Nếu current_weapon bằng null hoặc attack_behavior bằng null thì không tấn công
+	
 	var input_state = AttackInputState.new()
 	input_state.pressed = Input.is_action_pressed("primary_action")
 	input_state.just_pressed = Input.is_action_just_pressed("primary_action")
 	input_state.just_released = Input.is_action_just_released("primary_action")
 	
 	current_weapon.attack_behavior.handle_input(self, current_weapon, input_state)
+
+
+func hotbar_execute_action() -> bool:
+	if not GameManager.hotbar:
+		return false # Nếu GameManager.hotbar chưa tồn tại thì trả về false
+	
+	var slot = InventoryManager.slots[GameManager.hotbar.selected_slot_index]
+	if slot.is_empty():
+		return false # Nếu slot được select rỗng thì trả về false
+	
+	match slot.item.type:
+		ItemData.ItemType.CONSUMABLE:
+			return GameManager.hotbar.use_consumable(slot)
+		ItemData.ItemType.MATERIAL:
+			return GameManager.hotbar.use_material(slot)
+		ItemData.ItemType.ARMOR:
+			return GameManager.hotbar.equip_armor(slot)
+		ItemData.ItemType.WEAPON:
+			return false
+		_:
+			return false
+
+
+func _on_interact_pressed():
+	pass
 
 
 # Cập nhật hậu tố hoạt ảnh dựa trên loại vũ khí
