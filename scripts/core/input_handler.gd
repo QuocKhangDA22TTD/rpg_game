@@ -11,6 +11,3 @@ func _process(delta: float):
 	
 	if Input.is_action_just_pressed("interact"):
 		interact_pressed.emit()
-	
-	if Input.is_action_just_pressed("skill_primary"):
-		skill_primary_pressed.emit()
