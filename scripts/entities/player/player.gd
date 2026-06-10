@@ -165,28 +165,83 @@ func _attack_with_weapon():
 
 
 func hotbar_execute_action() -> bool:
-	if not GameManager.hotbar:
-		return false # Nếu GameManager.hotbar chưa tồn tại thì trả về false
-	
 	var slot = InventoryManager.slots[GameManager.hotbar.selected_slot_index]
+	
 	if slot.is_empty():
-		return false # Nếu slot được select rỗng thì trả về false
+		unequip_weapon()
+		return false
+	
+	if not slot.item.type == ItemData.ItemType.WEAPON:
+		unequip_weapon()
 	
 	match slot.item.type:
 		ItemData.ItemType.CONSUMABLE:
-			return GameManager.hotbar.use_consumable(slot)
+			if Input.is_action_just_pressed("primary_action"):
+				return use_consumable(slot)
 		ItemData.ItemType.MATERIAL:
-			return GameManager.hotbar.use_material(slot)
+			return false # return use_material(slot)
 		ItemData.ItemType.ARMOR:
-			return GameManager.hotbar.equip_armor(slot)
+			return false # return equip_armor(slot)
 		ItemData.ItemType.WEAPON:
-			return false
+			if slot.item != current_weapon:
+				equip_weapon(slot)
 		_:
 			return false
+
+	return false
 
 
 func _on_interact_pressed():
 	pass
+
+
+# Sử dụng vật phẩm tiêu hao
+func use_consumable(slot: Slot) -> bool:
+	var consumable = slot.item
+	if not consumable or not consumable.effect:
+		return false
+	
+	var success = consumable.effect.apply_effect(self)
+	if success:
+		print("Đã sử dụng: ", consumable.name)
+		InventoryManager.remove_item(GameManager.hotbar.selected_slot_index, 1)
+		return true
+	
+	return false
+
+
+# Trang bị vũ khí
+func equip_weapon(slot: Slot):
+	# Validation
+	if not slot.item is WeaponData:
+		push_error("Item không phải WeaponData: ", slot.item.name)
+		return
+	
+	print("Đã trang bị: ", slot.item.name)
+	# Cập nhật vũ khí hiện tại của player
+	current_weapon = slot.item
+	# Cập nhật sprite vũ khí của player
+	weapon_sprite_2d.texture = slot.item.weapon_texture
+	# Cập nhật texture hiệu ứng tấn công nếu có
+	if slot.item.attack_behavior is MeleeAttack:
+		effect_sprite_2d.texture = slot.item.slash_effect_texture
+
+
+func unequip_weapon():
+	# Dừng animation vũ khí nếu đang phát
+
+	# gán null cho vũ khí hiện tại của player
+	current_weapon = null
+
+	# gán null cho texture của weapon_sprite_2d và effect_sprite_2d và ẩn chúng đi
+	weapon_sprite_2d.texture = null
+	effect_sprite_2d.texture = null
+	weapon_sprite_2d.visible = false
+	effect_sprite_2d.visible = false
+
+	# gán null cho texture của arm_sprite_2d và ẩn nó đi
+	arm_sprite_2d.texture = null
+	arm_sprite_2d.visible = false
 
 
 # Cập nhật hậu tố hoạt ảnh dựa trên loại vũ khí
