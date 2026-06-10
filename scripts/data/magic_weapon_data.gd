@@ -2,9 +2,9 @@ extends WeaponData
 class_name MagicWeaponData
 
 enum CastType {
-    PROJECTILE,
-    AREA_EFFECT,
-    SELF_BUFF
+	PROJECTILE,
+	AREA_EFFECT,
+	SELF_BUFF
 }
 
 @export var mana_cost: float = 10.0 # lượng mana tiêu thụ mỗi lần tấn công
