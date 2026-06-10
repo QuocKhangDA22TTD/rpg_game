@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="RestoreManaEffect" format=3 uid="uid://bb3yu5vxw1ex0"]
+
+[ext_resource type="Script" uid="uid://bc8j0b23gcww7" path="res://scripts/data/restore_mana_effect.gd" id="1_y1gcr"]
+
+[resource]
+script = ExtResource("1_y1gcr")
+metadata/_custom_type_script = "uid://bc8j0b23gcww7"
