@@ -21,6 +21,10 @@ extends CharacterBody2D
 @export var dodge_duration: float = 0.3 # Thời gian dodge
 @export var dodge_cooldown: float = 0.8 # Thời gian chờ giữa các dodge
 
+@export var stamina_restore_rate: float = 15.0  # Tốc độ hồi mana
+@export var dodge_stamina_cost: float = 25.0    # stamina tiêu hao khi dodge
+@export var stamina_restore_modifier: float = 1.0 # Hệ số hồi phục stamina
+
 # Hướng cuối cùng nhân vật đang quay mặt
 var last_direction: String = "down"
 # Vector chứa input từ bàn phím
@@ -72,6 +76,7 @@ func _physics_process(delta: float) -> void:
 
 	_attack_with_weapon()
 	_handle_dodge_input()
+	restore_stamina(delta) # Kiểm tra và hồi phục stamina nếu cần
 
 	# Cập nhật last_direction theo chuột nếu cầm ranged weapon
 	if current_weapon and current_weapon is RangedWeaponData or current_weapon is MagicWeaponData:
@@ -257,7 +262,8 @@ func _handle_dodge_input():
 		return # Không thể dodge nếu đang tấn công melee
 	
 	if Input.is_action_just_pressed("ui_accept") and not is_dodging and dodge_cooldown_timer <= 0:
-		_start_dodge()
+		if use_stamina(dodge_stamina_cost):
+			_start_dodge() # Kiểm tra xem có đủ stamina để bắt đầu dodge
 
 
 func _start_dodge():
@@ -340,6 +346,7 @@ func take_damage(amount: float, source = null):
 		hurtbox.set_deferred("monitorable", true)
 		# TODO: Cập nhật UI thanh máu player ở đây nếu có
 
+
 func apply_knockback(direction: Vector2, force: float, duration: float):
 	knockback_direction = direction.normalized() * force
 	knockback_timer = duration
@@ -354,3 +361,18 @@ func use_mana(amount: float) -> bool:
 		return true # Báo sử dụng mana thành công
 
 	return false # Báo sử dụng mana thất bại (không đủ mana hoặc stats không tồn tại)
+
+
+# Kiểm tra và tiêu hao stamina
+func use_stamina(amount: float) -> bool:
+	if stats and stats.current_stamina >= amount:
+		stats.current_stamina -= amount
+		return true # Báo sử dụng stamina thành công
+	return false
+
+
+# Kiểm tra và hồi phục stamina theo thời gian
+func restore_stamina(delta: float) -> void:
+	if stats and stats.current_stamina < stats.max_stamina:
+		var restore_amount = stamina_restore_rate * stamina_restore_modifier * delta
+		stats.current_stamina += restore_amount
