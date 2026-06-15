@@ -2574,7 +2574,7 @@ hurtbox = NodePath("Hurtbox")
 dodge_cooldown = 0.01
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1986414232]
-zoom = Vector2(4, 4)
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 25.0
 
