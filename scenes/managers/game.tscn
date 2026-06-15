@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bptsnoc6m8hva"]
 
 [ext_resource type="Script" uid="uid://dx76qsv8hh17s" path="res://scripts/core/game.gd" id="1_upjpn"]
+[ext_resource type="PackedScene" uid="uid://bcvd8ceh60hrm" path="res://scenes/maps/home_base.tscn" id="2_qxu4n"]
 [ext_resource type="PackedScene" uid="uid://cpitsgqfub6hn" path="res://scenes/gameplay/player.tscn" id="3_qxu4n"]
 [ext_resource type="PackedScene" uid="uid://cfvxrdmvfuaw" path="res://scenes/ui/item_drop.tscn" id="4_3g53l"]
 [ext_resource type="Resource" uid="uid://2oxjf8hoxd7c" path="res://data/items/sword.tres" id="5_vigns"]
@@ -21,6 +22,8 @@ input_handler = NodePath("InputHandler")
 hotbar_ui = NodePath("UI/HotbarUI")
 
 [node name="Maps" type="Node2D" parent="." unique_id=83877726]
+
+[node name="HomeBase" parent="Maps" unique_id=1019395140 instance=ExtResource("2_qxu4n")]
 
 [node name="Entities" type="Node2D" parent="." unique_id=724745038]
 
