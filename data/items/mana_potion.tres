@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ConsumableData" format=3 uid="uid://dw3fpwhl5goux"]
 
 [ext_resource type="Resource" uid="uid://bb3yu5vxw1ex0" path="res://data/effects/restore_mana_effect.tres" id="1_145sx"]
-[ext_resource type="Texture2D" uid="uid://8ltgypoe6678" path="res://assets/sprites/mana_potion.png" id="2_145sx"]
+[ext_resource type="Texture2D" uid="uid://8ltgypoe6678" path="res://assets/graphics/items/mana_potion.png" id="2_145sx"]
 [ext_resource type="Script" uid="uid://bm7vx603y8foy" path="res://scripts/data/consumable_data.gd" id="3_2lr3n"]
 
 [resource]

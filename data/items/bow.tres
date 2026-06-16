@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="RangedWeaponData" format=3 uid="uid://bbi5qug4kumuc"]
 
-[ext_resource type="Texture2D" uid="uid://dpmik6npurs2a" path="res://assets/sprite_sheets/bow.png" id="1_1458k"]
+[ext_resource type="Texture2D" uid="uid://dpmik6npurs2a" path="res://assets/graphics/items/bow.png" id="1_1458k"]
 [ext_resource type="Script" uid="uid://dttii2ey4xn0j" path="res://scripts/system/combat/ranged_attack.gd" id="1_hiqf6"]
 [ext_resource type="Script" uid="uid://bsj871dg1jir1" path="res://scripts/data/ranged_weapon_data.gd" id="1_iqlgq"]
 [ext_resource type="PackedScene" uid="uid://bw0lr8uaxcd7y" path="res://scenes/gameplay/arrow.tscn" id="2_thjit"]

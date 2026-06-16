@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cpitsgqfub6hn"]
 
-[ext_resource type="Texture2D" uid="uid://duplrhxctrtde" path="res://assets/sprite_sheets/player.png" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://duplrhxctrtde" path="res://assets/graphics/characters/player.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dvilgeii024ul" path="res://scripts/entities/player/player.gd" id="1_g2els"]
 [ext_resource type="Resource" uid="uid://ds4xf584td4g5" path="res://data/entities/player/player.tres" id="2_olumy"]
 [ext_resource type="Script" uid="uid://b2swple1go7ko" path="res://scripts/system/combat/hurtbox.gd" id="3_03k2y"]
 [ext_resource type="Script" uid="uid://dw7p628bxvoo6" path="res://scripts/system/combat/hitbox.gd" id="3_qhqgy"]
-[ext_resource type="Texture2D" uid="uid://cmvrptn5x6r0i" path="res://assets/sprite_sheets/hand_pulling_bow.png" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://cmvrptn5x6r0i" path="res://assets/graphics/characters/hand_pulling_bow.png" id="4_dqkch"]
 [ext_resource type="Shader" uid="uid://d26p1k8rwchag" path="res://hit_effect.gdshader" id="7_olumy"]
 
 [sub_resource type="Animation" id="Animation_g2els"]

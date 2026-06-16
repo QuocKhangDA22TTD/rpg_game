@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://rq42avbrfnh1" path="res://scenes/gameplay/projectile.tscn" id="1_30hx6"]
 [ext_resource type="PackedScene" uid="uid://bjiggoxkn17lj" path="res://scenes/gameplay/explosion.tscn" id="2_1j2fc"]
-[ext_resource type="Texture2D" uid="uid://ctxljpoyc581g" path="res://assets/sprite_sheets/fireball.png" id="2_q7pkk"]
+[ext_resource type="Texture2D" uid="uid://ctxljpoyc581g" path="res://assets/graphics/projectiles/fireball.png" id="2_q7pkk"]
 
 [sub_resource type="Animation" id="Animation_1j2fc"]
 length = 0.001

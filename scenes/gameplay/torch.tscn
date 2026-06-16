@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b4kq1muq4a552"]
 
-[ext_resource type="Texture2D" uid="uid://c5lkg40voo3y6" path="res://assets/light.png" id="1_w46p7"]
-[ext_resource type="Texture2D" uid="uid://dvfeoa7tu2iso" path="res://assets/torch.png" id="2_x36sr"]
+[ext_resource type="Texture2D" uid="uid://c5lkg40voo3y6" path="res://assets/graphics/effects/light.png" id="1_w46p7"]
+[ext_resource type="Texture2D" uid="uid://dvfeoa7tu2iso" path="res://assets/graphics/environment/torch.png" id="2_x36sr"]
 
 [sub_resource type="Animation" id="Animation_75ngw"]
 length = 0.001

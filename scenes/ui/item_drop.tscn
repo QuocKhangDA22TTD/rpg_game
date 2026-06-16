@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cfvxrdmvfuaw"]
 
 [ext_resource type="Script" uid="uid://cvey8xi6ctslx" path="res://scripts/system/inventory/item_drop.gd" id="1_e8wxw"]
-[ext_resource type="Texture2D" uid="uid://dbwh600ajych5" path="res://assets/sprites/item_shadow.png" id="2_gmw1w"]
+[ext_resource type="Texture2D" uid="uid://dbwh600ajych5" path="res://assets/graphics/effects/item_shadow.png" id="2_gmw1w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_06m3a"]
 radius = 32.0
