@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwosnempng073"
-path="res://.godot/imported/slot.png-d86fb5f5324a8ac4d08d2ba5876b8e53.ctex"
+uid="uid://bfnf22uej5rq5"
+path="res://.godot/imported/normal_slot.png-67d82e4c22b2917c0f344f55721b0d3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/ui/slot.png"
-dest_files=["res://.godot/imported/slot.png-d86fb5f5324a8ac4d08d2ba5876b8e53.ctex"]
+source_file="res://assets/graphics/ui/normal_slot.png"
+dest_files=["res://.godot/imported/normal_slot.png-67d82e4c22b2917c0f344f55721b0d3b.ctex"]
 
 [params]
 
