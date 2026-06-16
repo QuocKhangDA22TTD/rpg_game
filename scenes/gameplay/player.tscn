@@ -2506,6 +2506,9 @@ _data = {
 &"slash_effect_up": SubResource("Animation_4r5pv")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_olumy"]
+radius = 9.0
+
 [sub_resource type="Animation" id="Animation_olumy"]
 length = 0.001
 tracks/0/type = "value"
@@ -2555,7 +2558,7 @@ _data = {
 &"hit_flash": SubResource("Animation_xwg0q")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=955801447 node_paths=PackedStringArray("camera_2d", "animation_player", "sprite_2d", "weapon_sprite_2d", "weapon_pivot", "effect_sprite_2d", "hitbox", "animation_weapon", "animation_body_effect", "projectile_spawn_point", "arm_sprite_2d", "hurtbox") groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=955801447 node_paths=PackedStringArray("camera_2d", "animation_player", "sprite_2d", "weapon_sprite_2d", "weapon_pivot", "effect_sprite_2d", "hitbox", "animation_weapon", "animation_body_effect", "projectile_spawn_point", "arm_sprite_2d", "hurtbox", "interaction_detector") groups=["player"]]
 collision_mask = 2
 script = ExtResource("1_g2els")
 camera_2d = NodePath("Camera2D")
@@ -2571,6 +2574,7 @@ projectile_spawn_point = NodePath("WeaponVisual/WeaponPivot/ProjectileSpawnPoint
 arm_sprite_2d = NodePath("WeaponVisual/WeaponPivot/ArmSprite2D")
 stats = ExtResource("2_olumy")
 hurtbox = NodePath("Hurtbox")
+interaction_detector = NodePath("InteractionDetector")
 dodge_cooldown = 0.01
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1986414232]
@@ -2632,6 +2636,12 @@ libraries/ = SubResource("AnimationLibrary_f1ej7")
 
 [node name="AnimationWeaponEffect" type="AnimationPlayer" parent="WeaponVisual" unique_id=360119740]
 libraries/ = SubResource("AnimationLibrary_qfm1y")
+
+[node name="InteractionDetector" type="Area2D" parent="." unique_id=1564704917]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector" unique_id=1874445550]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_olumy")
 
 [node name="AnimationBodyEffect" type="AnimationPlayer" parent="." unique_id=1631053629]
 libraries/ = SubResource("AnimationLibrary_efdaw")

@@ -12,9 +12,10 @@ extends CharacterBody2D
 @export var animation_weapon: AnimationPlayer # Tham chiếu đến animation player để phát hoạt ảnh vũ khí
 @export var animation_body_effect: AnimationPlayer
 @export var projectile_spawn_point: Marker2D # Tham chiếu đến điểm spawn projectile cho tấn công tầm xa
-@export var arm_sprite_2d: Sprite2D
-@export var stats: CharacterStats
+@export var arm_sprite_2d: Sprite2D # Tham chiếu tới sprite cánh tay của player
+@export var stats: CharacterStats # Tham chiếu tới chỉ số của nhân vật
 @export var hurtbox: Hurtbox # Tham chiếu đến hurtbox để nhận damage từ enemy
+@export var interaction_detector: Area2D # Tham chiếu tới node InteractionArea dùng để phát hiện các vùng tương tác
 
 # Dodge settings
 @export var dodge_speed: float = 200.0 # Tốc độ dodge
@@ -43,6 +44,9 @@ var knockback_direction: Vector2 = Vector2.ZERO # Vector hướng của knockbac
 var knockback_timer: float = 0.0 # Bộ đếm thời gian để theo dõi thời gian còn lại của knockback
 var knockback_duration: float = 0.0 # Thời gian knockback, được xác định khi bị tấn công
 
+# Mảng lưu trữ các vùng tương tác đang nằm trong tầm của Player
+var active_areas: Array[InteractionArea] = []
+
 func _ready() -> void:
 	GameManager.player = self
 
@@ -52,6 +56,9 @@ func _ready() -> void:
 	if GameManager.input_handler:
 		GameManager.input_handler.primary_action_pressed.connect(_on_primary_action_pressed)
 		GameManager.input_handler.interact_pressed.connect(_on_interact_pressed)
+	
+	interaction_detector.area_entered.connect(_on_interaction_area_entered) # Gọi hàm _on_interaction_area_entered khi Player vào vùng tương tác
+	interaction_detector.area_exited.connect(_on_interaction_area_exited) # Gọi hàm _on_interaction_area_exited khi Player ra khỏi vùng tương tác
 
 
 # Xử lý vật lý và di chuyển mỗi frame
@@ -197,7 +204,8 @@ func hotbar_execute_action() -> bool:
 
 
 func _on_interact_pressed():
-	pass
+	if active_areas.size() > 0:
+		active_areas[0].interact() # Gọi hàm interact() của vùng tương tác đầu tiên trong mảng active_areas
 
 
 # Sử dụng vật phẩm tiêu hao
@@ -376,3 +384,25 @@ func restore_stamina(delta: float) -> void:
 	if stats and stats.current_stamina < stats.max_stamina:
 		var restore_amount = stamina_restore_rate * stamina_restore_modifier * delta
 		stats.current_stamina += restore_amount
+
+
+func _on_interaction_area_entered(area: Area2D) -> void:
+	if area is InteractionArea:
+		active_areas.append(area) # Thêm vùng tương tác vào mảng active_areas
+
+		_sort_active_areas() # Sắp xếp lại để vùng nào gần Player nhất lên đầu nếu đứng giữa nhiều vùng tương tác
+
+		area.interactable_ui.show_prompt() # Hiện nút tương tác của vùng đó lên
+
+func _on_interaction_area_exited(area: Area2D) -> void:
+	if area is InteractionArea:
+		area.interactable_ui.hide_prompt() # Ẩn nút tương tác của vùng đó đi
+
+		active_areas.erase(area) # Xóa vùng tương tác khỏi mảng active_areas
+
+
+func _sort_active_areas() -> void:
+	if active_areas.size() > 1:
+		active_areas.sort_custom(func(a, b): 
+			return global_position.distance_to(a.global_position) < global_position.distance_to(b.global_position)
+		) # # Sắp xếp mảng dựa trên khoảng cách từ Player đến tâm của InteractionArea
