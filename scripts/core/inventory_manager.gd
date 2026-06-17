@@ -6,6 +6,9 @@ signal inventory_changed
 # Số lượng ô chứa đồ tối đa
 @export var size : int = 30
 
+# Vàng có trong kho đồ
+@export var gold: int = 0
+
 # Mảng chứa các slot (ô đồ)
 var slots : Array = []
 
