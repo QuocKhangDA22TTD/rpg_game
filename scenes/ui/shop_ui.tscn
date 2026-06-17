@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://cgs8332kiv678"]
+
+[ext_resource type="Script" uid="uid://7ol4kwnbixlo" path="res://scripts/system/shop_ui.gd" id="1_ygcrn"]
+[ext_resource type="PackedScene" uid="uid://dpd82mwl420i0" path="res://scenes/ui/shop_slot.tscn" id="2_avfhx"]
+[ext_resource type="Texture2D" uid="uid://b4ielergobe5m" path="res://assets/graphics/ui/inventory_background.png" id="3_nwxdi"]
+[ext_resource type="Texture2D" uid="uid://bfnf22uej5rq5" path="res://assets/graphics/ui/normal_slot.png" id="4_a65e2"]
+[ext_resource type="Texture2D" uid="uid://dhh1gn6tnj3y" path="res://assets/graphics/ui/close_button.png" id="4_sawmr"]
+[ext_resource type="Texture2D" uid="uid://b6rxt4gwxolku" path="res://assets/graphics/ui/buy_button.png" id="7_se4pl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q65g1"]
+atlas = ExtResource("7_se4pl")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sawmr"]
+atlas = ExtResource("7_se4pl")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se4pl"]
+atlas = ExtResource("7_se4pl")
+region = Rect2(64, 0, 64, 32)
+
+[node name="ShopUI" type="Control" unique_id=1405051982 node_paths=PackedStringArray("info_panel", "item_grid", "buy_button", "close_button", "item_name_label", "item_price_label", "item_type_label", "item_image")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ygcrn")
+info_panel = NodePath("InfoPanel")
+item_grid = NodePath("Background/ItemGrid")
+buy_button = NodePath("InfoPanel/BuyButton")
+close_button = NodePath("Background/CloseButton")
+shop_slot_scene = ExtResource("2_avfhx")
+item_name_label = NodePath("InfoPanel/VBoxContainer/ItemNameLabel")
+item_price_label = NodePath("InfoPanel/VBoxContainer/ItemPriceLabel")
+item_type_label = NodePath("InfoPanel/VBoxContainer/ItemTypeLabel")
+item_image = NodePath("InfoPanel/ItemImageSlotBackground/ItemImage")
+
+[node name="Panel" type="Panel" parent="." unique_id=2130430776]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=1191896335]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.79999
+offset_top = -194.4
+offset_right = 226.79999
+offset_bottom = 194.4
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_nwxdi")
+
+[node name="CloseButton" type="TextureButton" parent="Background" unique_id=1651705802]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_bottom = 32.0
+grow_horizontal = 0
+texture_normal = ExtResource("4_sawmr")
+stretch_mode = 0
+
+[node name="ItemGrid" type="GridContainer" parent="Background" unique_id=1526748926]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = -32.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 64
+theme_override_constants/v_separation = 64
+columns = 6
+
+[node name="InfoPanel" type="TextureRect" parent="." unique_id=487812342]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -453.6
+offset_top = -194.4
+offset_bottom = 194.4
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_nwxdi")
+
+[node name="ItemImageSlotBackground" type="TextureRect" parent="InfoPanel" unique_id=789704191]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 32.0
+offset_right = 63.999985
+offset_bottom = 160.0
+grow_horizontal = 2
+texture = ExtResource("4_a65e2")
+
+[node name="ItemImage" type="TextureRect" parent="InfoPanel/ItemImageSlotBackground" unique_id=1078367679]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InfoPanel" unique_id=1215850242]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -23.0
+offset_right = 0.5
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="ItemNameLabel" type="Label" parent="InfoPanel/VBoxContainer" unique_id=1687440762]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ItemPriceLabel" type="Label" parent="InfoPanel/VBoxContainer" unique_id=1711943819]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ItemTypeLabel" type="Label" parent="InfoPanel/VBoxContainer" unique_id=780984850]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="BuyButton" type="TextureButton" parent="InfoPanel" unique_id=334434023]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -63.999985
+offset_top = -64.0
+offset_right = 63.999985
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = SubResource("AtlasTexture_q65g1")
+texture_pressed = SubResource("AtlasTexture_sawmr")
+texture_hover = SubResource("AtlasTexture_se4pl")
+stretch_mode = 0
+
+[connection signal="pressed" from="Background/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="InfoPanel/BuyButton" to="." method="_on_buy_button_pressed"]
