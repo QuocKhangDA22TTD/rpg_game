@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dtkjfr3lp2vt7" path="res://scripts/system/inventory/inventory_ui.gd" id="1_tahbm"]
 [ext_resource type="PackedScene" uid="uid://dt0mss81fajoo" path="res://scenes/ui/slot.tscn" id="2_mdwe3"]
 [ext_resource type="PackedScene" uid="uid://ctdig0k8nh8in" path="res://scenes/ui/trash_slot.tscn" id="3_mdwe3"]
+[ext_resource type="Texture2D" uid="uid://b4ielergobe5m" path="res://assets/graphics/ui/inventory_background.png" id="3_nuief"]
 
 [node name="InventoryUI" type="Control" unique_id=1898595049 node_paths=PackedStringArray("grid")]
 layout_mode = 3
@@ -22,6 +23,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1198258955]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.8
+offset_top = -194.4
+offset_right = 226.8
+offset_bottom = 194.4
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_nuief")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=111862490]
 layout_mode = 1
