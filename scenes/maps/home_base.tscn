@@ -1,17 +1,18 @@
-[gd_scene format=4 uid="uid://bcvd8ceh60hrm"]
+[gd_scene format=4 uid="uid://drw027ttr8hpk"]
 
 [ext_resource type="Texture2D" uid="uid://0pbxkmgulotd" path="res://assets/graphics/environment/ts_ground.png" id="1_m4luy"]
 [ext_resource type="Texture2D" uid="uid://cv64oopm7fkdh" path="res://assets/graphics/environment/building.png" id="2_7ceih"]
 [ext_resource type="Texture2D" uid="uid://nkoqpmry0ndl" path="res://assets/graphics/environment/ts_fence.png" id="3_8s5lu"]
+[ext_resource type="Script" uid="uid://cbdsntyway2bf" path="res://scripts/system/transition_trigger.gd" id="4_bpfsj"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h03s4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6263n"]
 texture = ExtResource("1_m4luy")
 texture_region_size = Vector2i(32, 32)
 8:6/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_msnt3"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_h03s4")
+sources/0 = SubResource("TileSetAtlasSource_6263n")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pcrr1"]
 texture = ExtResource("1_m4luy")
@@ -133,7 +134,7 @@ terrain_set_0/terrain_0/name = "land_water"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_pcrr1")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_msnt3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h03s4"]
 texture = ExtResource("1_m4luy")
 texture_region_size = Vector2i(32, 32)
 0:3/0 = 0
@@ -471,9 +472,9 @@ tile_size = Vector2i(32, 32)
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "grass"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_msnt3")
+sources/0 = SubResource("TileSetAtlasSource_h03s4")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8s5lu"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_msnt3"]
 texture = ExtResource("1_m4luy")
 texture_region_size = Vector2i(32, 32)
 0:8/0 = 0
@@ -811,7 +812,7 @@ tile_size = Vector2i(32, 32)
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "road"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_8s5lu")
+sources/0 = SubResource("TileSetAtlasSource_msnt3")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bpfsj"]
 texture = ExtResource("2_7ceih")
@@ -825,7 +826,7 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_bpfsj")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6263n"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hm02e"]
 texture = ExtResource("3_8s5lu")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -920,7 +921,10 @@ tile_size = Vector2i(32, 32)
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "fence"
 terrain_set_0/terrain_0/color = Color(0.9280188, 0, 0, 1)
-sources/0 = SubResource("TileSetAtlasSource_6263n")
+sources/0 = SubResource("TileSetAtlasSource_hm02e")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ph6nv"]
+size = Vector2(150, 20)
 
 [node name="HomeBase" type="Node2D" unique_id=1019395140]
 y_sort_enabled = true
@@ -950,3 +954,21 @@ tile_set = SubResource("TileSet_6263n")
 [node name="Fence" type="TileMapLayer" parent="Environment" unique_id=775276374]
 tile_map_data = PackedByteArray("AAARAAgAAAACAAQAAAARAAkAAAAAAAYAAAATAAkAAAACAAQAAAASAAkAAAABAAMAAAATAAoAAAAAAAYAAAAVAAoAAAABAAMAAAAUAAoAAAABAAMAAAAXAAoAAAACAAQAAAAWAAoAAAABAAMAAAAXAAsAAAAAAAYAAAAYAAsAAAACAAQAAAAYAAwAAAAAAAYAAAAZAAwAAAACAAQAAAAZABAAAAACAAEAAAAZAA8AAAACAAEAAAAZAA4AAAACAAEAAAAZAA0AAAACAAEAAAAZABQAAAACAAYAAAAZABMAAAACAAEAAAAZABIAAAACAAEAAAAZABEAAAACAAEAAAAYABUAAAACAAYAAAAYABQAAAAAAAQAAAAXABUAAAAAAAQAAAARABYAAAAAAAQAAAASABYAAAABAAMAAAATABYAAAABAAMAAAAUABYAAAABAAMAAAAVABYAAAABAAMAAAAWABYAAAABAAMAAAAXABYAAAACAAYAAAARABkAAAACAAIAAAARABgAAAACAAEAAAARABcAAAACAAEAAAAMABYAAAACAAQAAAAMABcAAAACAAEAAAAMABgAAAACAAEAAAAMABkAAAACAAIAAAAHABYAAAAAAAYAAAAIABYAAAABAAMAAAAJABYAAAABAAMAAAAKABYAAAABAAMAAAALABYAAAABAAMAAAAGABUAAAAAAAYAAAAFABQAAAAAAAYAAAAGABQAAAACAAQAAAAHABUAAAACAAQAAAAFAA8AAAACAAEAAAAFABAAAAACAAEAAAAFABEAAAACAAEAAAAFABIAAAACAAEAAAAFABMAAAACAAEAAAAFAAwAAAAAAAQAAAAFAA0AAAACAAEAAAAFAA4AAAACAAEAAAAGAAsAAAAAAAQAAAAGAAwAAAACAAYAAAAHAAsAAAACAAYAAAAIAAoAAAABAAMAAAAHAAoAAAAAAAQAAAAKAAoAAAACAAYAAAAJAAoAAAABAAMAAAAKAAkAAAAAAAQAAAAMAAkAAAACAAYAAAALAAkAAAABAAMAAAAMAAgAAAAAAAQAAAANAAgAAAACAAMAAAAQAAgAAAAAAAMAAAARABMAAAAAAAEAAAATABMAAAAAAAEAAAAVABMAAAAAAAIAAAAMABMAAAAAAAIAAAAKABMAAAAAAAEAAAAIABMAAAAAAAEAAAANABMAAAABAAAAAAAQABMAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_pcrr1")
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=2136600219]
+
+[node name="Sp_From_Forest" type="Node2D" parent="SpawnPoints" unique_id=1247204461]
+position = Vector2(480, 784)
+
+[node name="Triggers" type="Node2D" parent="." unique_id=1683856371]
+
+[node name="TransitionTrigger" type="Area2D" parent="Triggers" unique_id=816796855]
+position = Vector2(480, 824)
+script = ExtResource("4_bpfsj")
+target_map_path = "uid://cmyw1f85vgxgs"
+target_spawn_id = "Sp_From_Home_Base"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/TransitionTrigger" unique_id=160910371]
+shape = SubResource("RectangleShape2D_ph6nv")
+
+[connection signal="area_entered" from="Triggers/TransitionTrigger" to="Triggers/TransitionTrigger" method="_on_area_entered"]
