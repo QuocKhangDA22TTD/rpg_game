@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dw7p628bxvoo6" path="res://scripts/system/combat/hitbox.gd" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://cmvrptn5x6r0i" path="res://assets/graphics/characters/hand_pulling_bow.png" id="4_dqkch"]
 [ext_resource type="Shader" uid="uid://d26p1k8rwchag" path="res://hit_effect.gdshader" id="7_olumy"]
+[ext_resource type="Texture2D" uid="uid://c5lkg40voo3y6" path="res://assets/graphics/effects/light.png" id="8_xxmvi"]
 
 [sub_resource type="Animation" id="Animation_g2els"]
 length = 0.001
@@ -2645,3 +2646,9 @@ shape = SubResource("CircleShape2D_olumy")
 
 [node name="AnimationBodyEffect" type="AnimationPlayer" parent="." unique_id=1631053629]
 libraries/ = SubResource("AnimationLibrary_efdaw")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1330559311]
+position = Vector2(0, -13)
+blend_mode = 2
+texture = ExtResource("8_xxmvi")
+texture_scale = 0.5
