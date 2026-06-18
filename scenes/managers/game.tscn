@@ -18,12 +18,14 @@
 [ext_resource type="PackedScene" uid="uid://lg1p333aau1e" path="res://scenes/ui/clock_ui.tscn" id="15_vigns"]
 [ext_resource type="PackedScene" uid="uid://c5dhf5vimsifg" path="res://scenes/managers/day_night_cycle.tscn" id="17_c456e"]
 
-[node name="Game" type="Node2D" unique_id=2114139567 node_paths=PackedStringArray("enemies_container", "input_handler", "hotbar_ui", "shop_ui")]
+[node name="Game" type="Node2D" unique_id=2114139567 node_paths=PackedStringArray("enemies_container", "input_handler", "hotbar_ui", "shop_ui", "maps_container", "entities_container")]
 script = ExtResource("1_upjpn")
 enemies_container = NodePath("World/Entities/Enemies")
 input_handler = NodePath("Systems/InputHandler")
 hotbar_ui = NodePath("UI/HotbarUI")
 shop_ui = NodePath("UI/ShopUI")
+maps_container = NodePath("World/Maps")
+entities_container = NodePath("World/Entities")
 
 [node name="World" type="Node2D" parent="." unique_id=193438284]
 
