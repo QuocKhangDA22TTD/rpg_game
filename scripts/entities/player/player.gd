@@ -1,7 +1,6 @@
 # Script điều khiển nhân vật người chơi
 extends CharacterBody2D
 
-@export var camera_2d: Camera2D # Tham chiếu đến camera theo dõi nhân vật
 @export var animation_player: AnimationPlayer # Tham chiếu đến animation player để phát hoạt ảnh
 @export var sprite_2d: Sprite2D # Tham chiếu đến sprite của nhân vật
 @export var current_weapon: WeaponData # Tham chiếu đến vũ khí đang được cầm
@@ -92,7 +91,6 @@ func _physics_process(delta: float) -> void:
 	_update_animation_and_direction()
 	
 	global_position = global_position.round()
-	camera_2d.global_position = global_position
 
 
 # Lấy vector input từ bàn phím (WASD hoặc mũi tên)
