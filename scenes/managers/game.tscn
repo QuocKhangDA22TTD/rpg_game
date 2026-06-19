@@ -37,7 +37,7 @@ entities_container = NodePath("World/Entities")
 [node name="Entities" type="Node2D" parent="World" unique_id=724745038]
 
 [node name="Player" parent="World/Entities" unique_id=955801447 instance=ExtResource("3_qxu4n")]
-position = Vector2(276, 260)
+position = Vector2(421, 342)
 
 [node name="Enemies" type="Node2D" parent="World/Entities" unique_id=46826747]
 
