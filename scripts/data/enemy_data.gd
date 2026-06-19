@@ -25,3 +25,5 @@ class_name EnemyData
 @export var animation_library: AnimationLibrary
 # các trạng thái có thể có
 @export var states: Array[EnemyState]
+# dữ liệu các vật phẩm có thể rơi ra
+@export var loot_table_resource: LootTableData
