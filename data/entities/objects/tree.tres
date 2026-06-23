@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SpawnableObjectData" format=3 uid="uid://cfdv6fevpkhh5"]
+
+[ext_resource type="PackedScene" uid="uid://c0025128bjx6x" path="res://scenes/gameplay/tree.tscn" id="1_xveqe"]
+[ext_resource type="Script" uid="uid://bgboyl58eg1e0" path="res://scripts/data/spawnable_object_data.gd" id="2_kgkmb"]
+
+[resource]
+script = ExtResource("2_kgkmb")
+name = "tree"
+scene = ExtResource("1_xveqe")
+spawn_chance = 0.075
+offset_range = 16.0
+metadata/_custom_type_script = "uid://bgboyl58eg1e0"
