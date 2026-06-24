@@ -57,3 +57,23 @@ func remove_item(index:int, amount:int):
 		slot.amount = 0
 		
 	emit_signal("inventory_changed")
+
+
+# Kiểm tra xem kho đồ còn đủ chỗ để chứa số lượng vật phẩm này không
+func has_space_for(item: ItemData, amount: int = 1) -> bool:
+	var remaining_amount = amount
+	
+	# 1. Kiểm tra xem có xếp chồng được vào slot cũ không
+	for slot in slots:
+		if slot.item == item and slot.amount < item.max_stack:
+			var space = item.max_stack - slot.amount
+			remaining_amount -= min(space, remaining_amount)
+			if remaining_amount <= 0:
+				return true
+				
+	# 2. Nếu vẫn còn dư, kiểm tra xem có slot trống nào không
+	for slot in slots:
+		if slot.is_empty():
+			return true
+			
+	return false

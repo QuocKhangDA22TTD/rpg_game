@@ -1,4 +1,3 @@
-# Script cho vật phẩm rơi trên bản đồ
 extends Node2D
 
 # Dữ liệu vật phẩm
@@ -8,34 +7,40 @@ extends Node2D
 @export var pickup_delay : float = 0.5
 @export var move_speed : float = 160.0
 
-# Tham chiếu đến sprite hiển thị vật phẩm
+# Tham chiếu đến các Node
 @onready var sprite = $Sprite2D
-# Tham chiếu đến vùng va chạm để nhặt vật phẩm
 @onready var area = $Area2D
 
 var can_pickup : bool = false
 var target_player = null
 
-# Khởi tạo vật phẩm rơi
 func _ready():
+	# 1. Thiết lập hiển thị hình ảnh
 	if item and item.icon:
-		# Hiển thị icon của vật phẩm
 		sprite.texture = item.icon
-		
-		# Điều chỉnh kích thước sprite nếu có thiết lập
 		if item.world_scale > 0:
 			sprite.scale = Vector2(item.world_scale, item.world_scale)
 		
+	# 2. Kết nối signal NGAY LẬP TỨC từ đầu để tránh bỏ sót va chạm
+	area.body_entered.connect(_on_body_entered)
+	
+	# 3. Đợi hết thời gian delay rồi mới cho phép nhặt
 	await get_tree().create_timer(pickup_delay).timeout
 	can_pickup = true
-
-	# Kết nối signal khi có vật thể va chạm
-	area.body_entered.connect(_on_body_entered)
+	
+	# 4. QUAN TRỌNG: Kiểm tra nếu Player đã đứng sẵn trong Area2D từ trước
+	_check_overlapping_bodies()
 
 
 func _process(delta):
-	if target_player:
-		# Di chuyển về player
+	# Chỉ di chuyển nếu có mục tiêu và túi đồ còn chỗ (hoặc có thể nhặt được)
+	if target_player and can_pickup:
+		# Kiểm tra lại xem túi đồ còn chỗ chứa vật phẩm này không, nếu ĐẦY thì hủy mục tiêu
+		if not InventoryManager.has_space_for(item, amount):
+			target_player = null
+			return
+
+		# Di chuyển về phía player
 		var direction = (target_player.global_position - global_position).normalized()
 		global_position += direction * move_speed * delta
 		
@@ -45,8 +50,20 @@ func _process(delta):
 				queue_free()
 
 
+# Hàm xử lý khi Player bước vào vùng hút
+func _on_body_entered(body):
+	if can_pickup and body.name == "Player" and target_player == null:
+		# Chỉ hút nếu túi đồ còn chỗ
+		if InventoryManager.has_space_for(item, amount):
+			target_player = body
 
-# Xử lý khi người chơi chạm vào vật phẩm
-func _on_body_entered(body):	
-	if body.name == "Player" and target_player == null:
-		target_player = body
+
+# Hàm quét các vật thể đang đứng sẵn bên trong Area2D
+func _check_overlapping_bodies():
+	if not can_pickup: return
+	
+	var overlapping_bodies = area.get_overlapping_bodies()
+	for body in overlapping_bodies:
+		if body.name == "Player":
+			_on_body_entered(body)
+			break
