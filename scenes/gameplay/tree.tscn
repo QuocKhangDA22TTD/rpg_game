@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://c0025128bjx6x"]
 
+[ext_resource type="Script" uid="uid://x4ah0g5px2se" path="res://scripts/system/destructible_object.gd" id="1_ge3lw"]
 [ext_resource type="Texture2D" uid="uid://b0sr7dc6qwyc" path="res://assets/graphics/environment/objects.png" id="1_u7ccs"]
 [ext_resource type="Script" uid="uid://b2swple1go7ko" path="res://scripts/system/combat/hurtbox.gd" id="2_dtjiv"]
+[ext_resource type="PackedScene" uid="uid://d0pwulmbr12mb" path="res://scenes/gameplay/loot_dropper_component.tscn" id="4_gko5p"]
+[ext_resource type="Resource" uid="uid://cuu7pixdj8usg" path="res://data/loot_tables/tree_loot.tres" id="5_41cy1"]
+[ext_resource type="PackedScene" uid="uid://cfvxrdmvfuaw" path="res://scenes/ui/item_drop.tscn" id="6_ic4nj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dtjiv"]
 atlas = ExtResource("1_u7ccs")
@@ -11,14 +15,27 @@ region = Rect2(0, 0, 64, 96)
 radius = 7.0
 
 [node name="Tree" type="Node2D" unique_id=937755347]
+script = ExtResource("1_ge3lw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=33111917]
 texture = SubResource("AtlasTexture_dtjiv")
 offset = Vector2(0, -43)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1226915209]
+[node name="Area2D" type="Area2D" parent="." unique_id=1226915209 node_paths=PackedStringArray("owner_entity")]
 script = ExtResource("2_dtjiv")
+owner_entity = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1389161872]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_ge3lw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=240404288]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1587507452]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_ge3lw")
+
+[node name="LootDropperComponent" parent="." unique_id=291661485 instance=ExtResource("4_gko5p")]
+loot_table = ExtResource("5_41cy1")
+drop_item_scene = ExtResource("6_ic4nj")
