@@ -3,6 +3,7 @@ class_name DestructibleObject
 
 @export var max_health: float = 1.0 # Lượng máu tối đa của đối tượng
 @export var current_health: float = 0.0 # Lượng máu hiện tại của đối tượng
+@export var animation_player: AnimationPlayer
 
 func _ready() -> void:
 	current_health = max_health
@@ -11,12 +12,19 @@ func _ready() -> void:
 func take_damage(damage: float, _source: Node = null) -> void:
 	current_health -= damage
 	
+	if animation_player.has_animation("hit"):
+		animation_player.play("hit") # Kiểm tra xem animation_player có animaiton hit không, nếu có thì play animation
+
 	if current_health <= 0:
 		destroy() # Nếu máu của đối tượng giảm về 0, gọi hàm destroy
 
 func destroy() -> void:
 	# Kích hoạt hiệu ứng nổ/vỡ nếu có (vẽ hạt particle, âm thanh...)
-	# ...
-	
-	# Xóa đối tượng (LootDropperComponent sẽ tự động bắt sự kiện này để rơi đồ)
-	queue_free()
+	if animation_player:
+		animation_player.play("destruction")
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "destruction":
+		# Xóa đối tượng (LootDropperComponent sẽ tự động bắt sự kiện này để rơi đồ)
+		queue_free()
