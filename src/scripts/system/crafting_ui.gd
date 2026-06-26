@@ -69,7 +69,7 @@ func update_detail_panel():
 		ing_ui.set_ingredient(ing)
 		
 	# Bật/Tắt nút Chế tạo dựa trên việc đủ nguyên liệu hay không
-	craft_button.disabled = !InventoryManager.has_ingredients(selected_recipe)
+	craft_button.disabled = !CraftingManager.has_ingredients(selected_recipe)
 
 # Khi bấm nút Chế Tạo
 func _on_craft_button_pressed():
